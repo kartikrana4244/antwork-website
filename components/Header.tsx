@@ -42,7 +42,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm transition-shadow">
       <div className="mx-auto flex min-h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center" aria-label="AntWork Consultants LLP Home">
-          <img src="/logo-antwork.svg" alt="AntWork Consultants LLP" className="hidden md:block" style={{ height: '90px', width: 'auto' }} />
+          <img src="/logo-antwork.svg" alt="AntWork Consultants LLP" className="hidden md:block" style={{ height: '150px', width: 'auto' }} />
             <img src="/logo-antwork.svg" alt="AntWork Consultants LLP" className="block md:hidden" style={{ height: '45px', width: 'auto' }} />
         </Link>
 
