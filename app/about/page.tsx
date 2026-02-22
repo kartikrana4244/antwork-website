@@ -52,7 +52,7 @@ export default function AboutPage() {
             <div>
               <h2 className="font-heading text-3xl font-bold text-[#4F4F4F]">Who We Are</h2>
               <p className="mt-6 text-lg leading-relaxed text-[#4F4F4F]/90">
-                AntWork Consultants LLP is a dynamic business advisory firm dedicated to building scalable enterprises. We specialize in transforming early-stage businesses into structured franchise models and assisting established brands in nationwide expansion. We believe in structured growth, ethical advisory, and long-term value creation.
+                AntWork Consultants LLP is a results-driven consulting firm that accelerates brand expansion through strategic franchise partnerships. We empower investors to find their perfect match, optimize exhibition spaces, and drive M&A activity for thriving franchises and SMEs. Our growth advisory services fuel business transformation and sustainable growth.
               </p>
             </div>
           </div>
@@ -112,13 +112,13 @@ export default function AboutPage() {
               name="Alok Tripathi"
               role="Founder & CEO"
               bio="Visionary leader driving AntWork's mission of ethical and scalable business consulting across India."
-              linkedInUrl="https://www.linkedin.com/in/aloktripathi"
+              linkedInUrl="https://www.linkedin.com/in/alok-tripathi-97718254"
             />
             <LeadershipCard
               name="Yash Sharma"
               role="Director, Exhibition"
               bio="Expert in organizing high-impact business exhibitions and connecting brands with investors."
-              linkedInUrl="https://www.linkedin.com/in/yashsharma"
+              linkedInUrl="http://linkedin.com/in/yash-sharma-b9826021b"
             />
           </div>
         </div>

@@ -48,7 +48,7 @@ export default function AboutSnapshot() {
               transition={{ duration: 0.5, delay: 0.08 }}
               className="mt-6 text-lg leading-relaxed text-[#4F4F4F]/90"
             >
-              AntWork Consultants LLP is a strategic business consulting firm committed to helping brands scale, expand, and succeed in competitive markets. With deep expertise in franchise consulting, business resale, exhibitions, and corporate advisory, we enable entrepreneurs and organizations to unlock sustainable growth opportunities.
+              AntWork Consultants LLP is a results-driven consulting firm that accelerates brand expansion through strategic franchise partnerships. We empower investors to find their perfect match, optimize exhibition spaces, and drive M&A activity for thriving franchises and SMEs. Our growth advisory services fuel business transformation and sustainable growth.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 24 }}
