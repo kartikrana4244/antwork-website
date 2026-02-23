@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useScroll } from 'framer-motion';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -37,13 +37,25 @@ export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const unsub = scrollY.on('change', (v) => setScrolled(v > 20));
+    return () => unsub();
+  }, [scrollY]);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white shadow-sm transition-shadow">
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/70 shadow-md backdrop-blur-xl backdrop-saturate-150'
+          : 'bg-white shadow-sm'
+      }`}
+    >
       <div className="mx-auto flex min-h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center" aria-label="AntWork Consultants LLP Home">
-          <img src="/logo-antwork.svg" alt="AntWork Consultants LLP" className="hidden md:block" style={{ height: '150px', width: 'auto' }} />
-            <img src="/logo-antwork.svg" alt="AntWork Consultants LLP" className="block md:hidden" style={{ height: '45px', width: 'auto' }} />
+          <img src="/logo-antwork.svg" alt="AntWork Consultants LLP" className="hidden h-[120px] max-w-full w-auto object-contain md:block" />
+          <img src="/logo-antwork.svg" alt="AntWork Consultants LLP" className="block h-[45px] max-w-full w-auto object-contain md:hidden" />
         </Link>
 
         {/* Desktop nav */}
@@ -117,10 +129,10 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile menu button - 44px min touch target */}
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-lg p-2 text-[#4F4F4F] hover:bg-[#F8F8F8] lg:hidden"
+          className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-[#4F4F4F] hover:bg-[#F8F8F8] active:bg-[#F8F8F8] lg:hidden"
           aria-expanded={mobileOpen}
           aria-label="Toggle menu"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -150,8 +162,9 @@ export default function Header() {
                 'children' in item ? (
                   <div key={item.label}>
                     <button
+                      type="button"
                       onClick={() => setServicesOpen(!servicesOpen)}
-                      className={`flex w-full items-center justify-between py-3 font-medium ${
+                      className={`flex min-h-[44px] w-full items-center justify-between py-3 font-medium ${
                         isServicesActive(pathname) ? 'text-[#F2C94C]' : 'text-[#4F4F4F]'
                       }`}
                     >
@@ -186,7 +199,7 @@ export default function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`py-3 font-medium ${
+                    className={`flex min-h-[44px] items-center py-3 font-medium ${
                       isActive(item.href, pathname) ? 'text-[#F2C94C]' : 'text-[#4F4F4F]'
                     }`}
                   >
@@ -197,7 +210,7 @@ export default function Header() {
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="btn-primary mt-4 block rounded-xl px-5 py-3 text-center"
+                className="btn-primary mt-4 flex min-h-[44px] items-center justify-center rounded-xl px-5 py-3 text-center"
               >
                 Book Consultation
               </Link>

@@ -40,6 +40,22 @@ h1, h2, h3, h4, h5, h6 {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Touch-friendly buttons (min 44px) */
+.btn-primary,
+.btn-secondary,
+.btn-outline {
+  min-height: 44px;
+}
+
+@media (min-width: 768px) {
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    min-height: auto;
+  }
 }
 
 /* Professional button styles with smooth hover scale */
@@ -69,4 +85,16 @@ html {
 .btn-outline:hover {
   background-color: rgba(242, 201, 76, 0.1);
   transform: translateY(-2px) scale(1.02);
+}
+
+/* Premium glassmorphism card */
+.card-glass {
+  @apply rounded-2xl border border-white/40 bg-white/70 shadow-lg backdrop-blur-xl;
+}
+.card-glass-border {
+  @apply rounded-2xl p-[1px];
+  background: linear-gradient(135deg, rgba(242, 201, 76, 0.4) 0%, rgba(255,255,255,0.9) 50%, rgba(79, 79, 79, 0.1) 100%);
+}
+.card-glass-border .card-glass-inner {
+  @apply rounded-2xl bg-white/80 backdrop-blur-xl border border-white/40;
 }

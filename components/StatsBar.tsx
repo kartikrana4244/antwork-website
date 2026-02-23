@@ -39,12 +39,14 @@ function StatCard({
       initial={{ opacity: 0, y: 24 }}
       animate={start ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="text-center"
+      className="relative rounded-2xl p-[1px] bg-gradient-to-br from-[#F2C94C] via-[#F8E8A8] to-[#4F4F4F]/30"
     >
-      <p className="font-heading text-3xl font-bold text-[#F2C94C] sm:text-4xl">
-        {count.toLocaleString()}{suffix}
-      </p>
-      <p className="mt-1 text-sm font-medium text-white/90">{label}</p>
+      <div className="rounded-2xl bg-[#4F4F4F] px-4 py-5 text-center sm:px-6 sm:py-8">
+        <p className="font-heading text-2xl font-bold text-[#F2C94C] sm:text-3xl lg:text-4xl">
+          {count.toLocaleString()}{suffix}
+        </p>
+        <p className="mt-1 text-xs font-medium text-white/90 sm:mt-2 sm:text-sm">{label}</p>
+      </div>
     </motion.div>
   );
 }
@@ -67,11 +69,11 @@ export default function StatsBar() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.6 }}
-      className="bg-[#4F4F4F] py-12 sm:py-16"
+      className="bg-gradient-to-b from-[#3d3d3d] to-[#4F4F4F] py-10 sm:py-14 lg:py-20"
       aria-label="Key statistics"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+      <div className="mx-auto min-w-0 max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {stats.map((stat, i) => (
             <StatCard
               key={stat.label}

@@ -31,7 +31,7 @@ export default function ServicesGrid() {
       className="bg-[#F8F8F8] py-16 sm:py-24"
       id="services"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto min-w-0 max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ export default function ServicesGrid() {
           className="text-center"
         >
           <h2 className="font-heading text-3xl font-bold text-[#4F4F4F] sm:text-4xl">Our Core Services</h2>
-          <p className="mt-3 text-lg text-[#4F4F4F]/80">
+          <p className="mt-3 min-w-0 break-words text-lg text-[#4F4F4F]/80">
             End-to-end consulting solutions for your business growth
           </p>
         </motion.div>
@@ -54,20 +54,21 @@ export default function ServicesGrid() {
               transition={{ duration: 0.5, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
             >
               <motion.div
-                whileHover={{ y: -8, scale: 1.01, boxShadow: '0 20px 40px -12px rgba(79, 79, 79, 0.18)' }}
+                whileHover={{ y: -8, scale: 1.02, boxShadow: '0 24px 48px -12px rgba(79, 79, 79, 0.2)' }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="rounded-2xl p-[1px] bg-gradient-to-br from-[#F2C94C]/40 via-white to-[#4F4F4F]/10"
               >
                 <Link
                   href={service.href}
-                  className="group block rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
+                  className="group block min-w-0 rounded-2xl border border-white/40 bg-white/70 p-5 shadow-lg backdrop-blur-xl sm:p-6"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#F2C94C]/15 text-[#4F4F4F] transition-colors group-hover:bg-[#F2C94C]/25">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#F2C94C]/20 text-[#4F4F4F] transition-colors group-hover:bg-[#F2C94C]/30">
                     <service.Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
                   </div>
-                  <h3 className="mt-4 font-heading text-xl font-semibold text-[#4F4F4F]">
+                  <h3 className="mt-4 font-heading text-lg font-semibold text-[#4F4F4F] sm:text-xl">
                     {service.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#4F4F4F]/80">
+                  <p className="mt-2 min-w-0 break-words text-sm leading-relaxed text-[#4F4F4F]/80">
                     {service.description}
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[#F2C94C] transition-transform group-hover:gap-2.5">

@@ -22,16 +22,16 @@ const serviceLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#2D2D2D] text-white">
+    <footer className="min-w-0 overflow-x-hidden bg-[#2D2D2D] text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="grid gap-8 lg:grid-cols-4">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* About Snapshot */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-4 font-heading text-xl font-bold" aria-label="AntWork Home">
+          <div className="min-w-0 sm:col-span-2 lg:col-span-1">
+            <Link href="/" className="inline-block mb-4 font-heading text-lg font-bold sm:text-xl" aria-label="AntWork Home">
               <span className="text-[#F2C94C]">Ant</span><span className="text-white">Work</span>
-              <span className="ml-1 text-sm font-normal text-gray-400">Consultants LLP</span>
+              <span className="ml-1 text-xs font-normal text-gray-400 sm:text-sm">Consultants LLP</span>
             </Link>
-            <p className="text-sm leading-relaxed text-gray-300">
+            <p className="break-words text-sm leading-relaxed text-gray-300">
               AntWork Consultants LLP is a growth-based consulting firm helping brands expand through franchise routes, business resale, and exhibitions. Ethical Excellence in every engagement.
             </p>
           </div>
@@ -79,16 +79,16 @@ export default function Footer() {
             </address>
             <div className="mt-6">
               <h4 className="mb-2 text-sm font-medium text-white">Newsletter</h4>
-              <form className="flex gap-2" onSubmit={(e) => e.preventDefault()} aria-label="Newsletter signup">
+              <form className="flex min-h-[44px] flex-col gap-2 sm:flex-row" onSubmit={(e) => e.preventDefault()} aria-label="Newsletter signup">
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="flex-1 rounded border border-gray-600 bg-[#3D3D3D] px-3 py-2 text-sm text-white placeholder-gray-500 focus:border-[#F2C94C] focus:outline-none focus:ring-1 focus:ring-[#F2C94C]"
+                  className="min-h-[44px] flex-1 rounded border border-gray-600 bg-[#3D3D3D] px-3 py-2 text-base text-white placeholder-gray-500 focus:border-[#F2C94C] focus:outline-none focus:ring-1 focus:ring-[#F2C94C]"
                   aria-label="Email for newsletter"
                 />
                 <button
                   type="submit"
-                  className="rounded-xl bg-[#F2C94C] px-4 py-2.5 text-sm font-semibold text-[#4F4F4F] transition-all duration-300 hover:bg-[#e5b83d] hover:shadow-md"
+                  className="min-h-[44px] shrink-0 rounded-xl bg-[#F2C94C] px-4 py-2.5 text-sm font-semibold text-[#4F4F4F] transition-all duration-300 hover:bg-[#e5b83d] hover:shadow-md"
                 >
                   Subscribe
                 </button>
@@ -110,10 +110,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-gray-600 pt-8">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-gray-500">© 2026 AntWork Consultants LLP. All rights reserved.</p>
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
+        <div className="mt-10 border-t border-gray-600 pt-8 sm:mt-12">
+          <div className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
+            <p className="text-xs text-gray-500 sm:text-sm">© 2026 AntWork Consultants LLP. All rights reserved.</p>
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
               <Link href="/privacy" className="text-gray-500 hover:text-[#F2C94C]">Privacy Policy</Link>
               <Link href="/terms" className="text-gray-500 hover:text-[#F2C94C]">Terms</Link>
               <Link href="/disclaimer" className="text-gray-500 hover:text-[#F2C94C]">Disclaimer</Link>

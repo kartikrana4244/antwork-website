@@ -13,14 +13,14 @@ export default function AboutSnapshot() {
       className="bg-white py-16 sm:py-24"
       id="about"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto min-w-0 max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <motion.div
             initial={{ opacity: 0, x: -28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="aspect-[4/3] max-w-lg overflow-hidden rounded-2xl bg-gradient-to-br from-[#F2C94C]/20 via-[#F8F8F8] to-[#4F4F4F]/10"
+            className="aspect-[4/3] w-full max-w-lg overflow-hidden rounded-2xl bg-gradient-to-br from-[#F2C94C]/20 via-[#F8F8F8] to-[#4F4F4F]/10"
             aria-hidden="true"
           >
             <div className="flex h-full w-full items-center justify-center">
@@ -31,7 +31,7 @@ export default function AboutSnapshot() {
               </div>
             </div>
           </motion.div>
-          <div>
+          <div className="min-w-0">
             <motion.h2
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export default function AboutSnapshot() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.08 }}
-              className="mt-6 text-lg leading-relaxed text-[#4F4F4F]/90"
+              className="mt-6 break-words text-base leading-relaxed text-[#4F4F4F]/90 sm:text-lg"
             >
               AntWork Consultants LLP is a results-driven consulting firm that accelerates brand expansion through strategic franchise partnerships. We empower investors to find their perfect match, optimize exhibition spaces, and drive M&A activity for thriving franchises and SMEs. Our growth advisory services fuel business transformation and sustainable growth.
             </motion.p>

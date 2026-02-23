@@ -16,7 +16,7 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
 
   if (variant === 'investor') {
     return (
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="min-w-0 space-y-4">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-[#4F4F4F]">Name</label>
           <input
@@ -24,7 +24,7 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
             name="name"
             type="text"
             required
-            className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
+            className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
           />
         </div>
         <div>
@@ -34,7 +34,7 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
             name="phone"
             type="tel"
             required
-            className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
+            className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
           />
         </div>
         <div>
@@ -44,7 +44,7 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
             name="email"
             type="email"
             required
-            className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
+            className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
           />
         </div>
         <div>
@@ -54,7 +54,7 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
             name="budget"
             type="text"
             placeholder="e.g. 10-25 Lakhs"
-            className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
+            className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
           />
         </div>
         <div>
@@ -64,7 +64,7 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
             name="location"
             type="text"
             placeholder="City or region"
-            className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
+            className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
           />
         </div>
         <div>
@@ -73,7 +73,7 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
             id="interest"
             name="interest"
             required
-            className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
+            className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
           >
             <option value="">Select</option>
             <option value="franchise">Franchise</option>
@@ -83,7 +83,7 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
         </div>
         <button
           type="submit"
-          className="btn-primary w-full rounded-xl py-4"
+          className="btn-primary min-h-[48px] w-full rounded-xl py-4"
         >
           {submitted ? 'Thank you! We will be in touch.' : 'Submit'}
         </button>
@@ -92,7 +92,7 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="min-w-0 space-y-4">
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-[#4F4F4F]">Name</label>
         <input
@@ -100,7 +100,7 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
           name="name"
           type="text"
           required
-          className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
+          className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
         />
       </div>
       <div>
@@ -110,7 +110,7 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
           name="email"
           type="email"
           required
-          className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
+          className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
         />
       </div>
       <div>
@@ -119,7 +119,7 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
           id="phone"
           name="phone"
           type="tel"
-          className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
+          className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
         />
       </div>
       <div>
@@ -127,7 +127,7 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
         <select
           id="service"
           name="service"
-          className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
+          className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
         >
           <option value="">Select a service</option>
           <option value="franchise-consulting">Franchise Consulting</option>
@@ -145,12 +145,12 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
           name="message"
           rows={4}
           required
-          className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
+          className="mt-1 min-h-[88px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
         />
       </div>
       <button
         type="submit"
-        className="btn-primary w-full rounded-xl py-4"
+        className="btn-primary min-h-[48px] w-full rounded-xl py-4"
       >
         {submitted ? 'Thank you! We will get back soon.' : 'Send Message'}
       </button>

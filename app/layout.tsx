@@ -23,10 +23,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="font-sans antialiased">
+    <html lang="en" className="scroll-smooth overflow-x-hidden">
+      <body className="min-w-0 font-sans antialiased overflow-x-hidden">
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen min-w-0 overflow-x-hidden">{children}</main>
         <Footer />
         <WhatsAppButton />
       </body>
