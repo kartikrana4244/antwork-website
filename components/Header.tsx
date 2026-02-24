@@ -52,7 +52,7 @@ export default function Header() {
           : 'bg-white shadow-sm'
       }`}
     >
-      <div className="mx-auto flex min-h-[120px] max-w-7xl items-center justify-between px-4 sm:min-h-[140px] sm:px-6 lg:min-h-[180px] lg:px-8">
+      <div className="mx-auto flex min-h-[80px] max-w-7xl items-center justify-between px-4 sm:min-h-[90px] sm:px-6 lg:min-h-[100px] lg:px-8">
         <Link href="/" className="flex shrink-0 items-center" aria-label="AntWork Consultants LLP Home">
           <img
             src="/logo-antwork.svg"
