@@ -29,7 +29,7 @@ export default function IndustriesStrip() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-[#F8F8F8] py-16 sm:py-20"
+      className="bg-[#F8F8F8] py-16 sm:py-24"
       id="industries"
     >
       <div className="mx-auto min-w-0 max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -42,7 +42,7 @@ export default function IndustriesStrip() {
         >
           Industries We Serve
         </motion.h2>
-        <div className="mt-12 flex flex-wrap justify-center gap-6">
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {industries.map((ind, i) => (
             <motion.div
               key={ind.name}
@@ -54,12 +54,14 @@ export default function IndustriesStrip() {
             >
               <Link
                 href="/industries"
-                className="flex min-h-[88px] min-w-[120px] flex-col items-center justify-center rounded-xl border-2 border-transparent bg-white px-6 py-5 shadow-sm transition-colors duration-300 hover:border-[#F2C94C] hover:shadow-md sm:px-8 sm:py-6"
+                className="group flex min-h-[120px] min-w-[140px] flex-col items-center justify-center rounded-xl border-2 border-transparent bg-white p-6 shadow-md transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.03] hover:border-[#F2C94C] hover:shadow-xl sm:p-7 lg:p-8"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#F2C94C]/15 text-[#4F4F4F]">
-                  <ind.Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F2C94C]/20 text-[#4F4F4F] transition-colors duration-300 group-hover:bg-[#F2C94C]">
+                  <ind.Icon className="h-7 w-7" strokeWidth={1.75} aria-hidden />
                 </div>
-                <span className="mt-3 font-heading font-semibold text-[#4F4F4F]">{ind.name}</span>
+                <span className="mt-4 font-heading text-lg font-semibold text-[#4F4F4F] sm:text-xl">
+                  {ind.name}
+                </span>
               </Link>
             </motion.div>
           ))}
