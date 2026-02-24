@@ -55,12 +55,12 @@ export default function Header() {
       <div className="mx-auto flex min-h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center" aria-label="AntWork Consultants LLP Home">
           <img
-            src="/logo-antwork.svg"
+            src="/logo-new.jpeg"
             alt="AntWork Consultants LLP"
             className="hidden h-[120px] max-w-full w-auto object-contain md:block"
           />
           <img
-            src="/logo-antwork.svg"
+            src="/logo-new.jpeg"
             alt="AntWork Consultants LLP"
             className="block h-[60px] max-w-full w-auto object-contain md:hidden"
           />
