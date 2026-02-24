@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '@/components/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'Exhibition & Fest Management',
+  title: 'Exhibition Management',
   description:
     'Showcase your brand at high-impact business exhibitions. AntWork handles exhibition planning, brand participation, sponsorship, and investor networking. Grow your visibility.',
 };
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function ExhibitionManagementPage() {
   return (
     <ServicePageTemplate
-      title="Exhibition & Fest Management"
+      title="Exhibition Management"
       heroTitle="Showcase Your Brand to Thousands"
       overview={
         <>

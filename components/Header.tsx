@@ -13,7 +13,7 @@ const navLinks = [
     children: [
       { href: '/services/franchise-consulting', label: 'Franchise Consulting' },
       { href: '/services/franchise-expansion', label: 'Franchise Expansion' },
-      { href: '/services/exhibition-management', label: 'Exhibition & Fest Management' },
+      { href: '/services/exhibition-management', label: 'Exhibition Management' },
       { href: '/services/business-resale', label: 'Business Resale' },
       { href: '/services/mergers-acquisitions', label: 'Mergers & Acquisitions' },
       { href: '/services/b2b-consulting', label: 'B2B Strategic Consulting' },

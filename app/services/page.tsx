@@ -8,7 +8,7 @@ import PageBanner from '@/components/PageBanner';
 const services = [
   { href: '/services/franchise-consulting', title: 'Franchise Consulting', description: 'Convert your business into a scalable franchise model with structured systems and documentation.' },
   { href: '/services/franchise-expansion', title: 'Franchise Expansion', description: 'Scale your franchise across cities and regions with territory planning and investor matching.' },
-  { href: '/services/exhibition-management', title: 'Exhibition & Fest Management', description: 'Showcase your brand at high-impact business exhibitions and networking events.' },
+  { href: '/services/exhibition-management', title: 'Exhibition Management', description: 'Showcase your brand at high-impact business exhibitions and networking events.' },
   { href: '/services/business-resale', title: 'Business Resale', description: 'Smooth, confidential resale of running businesses with end-to-end deal support.' },
   { href: '/services/mergers-acquisitions', title: 'Mergers & Acquisitions', description: 'Strategic M&A advisory with top-notch confidentiality and deal structuring.' },
   { href: '/services/b2b-consulting', title: 'B2B Strategic Consulting', description: 'Result-oriented growth strategies, market entry, and operational efficiency.' },

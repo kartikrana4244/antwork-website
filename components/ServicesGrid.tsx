@@ -15,7 +15,7 @@ import {
 const services = [
   { href: '/services/franchise-consulting', Icon: Building2, title: 'Franchise Consulting', description: 'Convert your business into a scalable franchise model' },
   { href: '/services/franchise-expansion', Icon: Rocket, title: 'Franchise Expansion', description: 'Expand your franchise across cities and regions' },
-  { href: '/services/exhibition-management', Icon: CalendarDays, title: 'Exhibition & Fest Management', description: 'Showcase your brand at high-impact business exhibitions' },
+  { href: '/services/exhibition-management', Icon: CalendarDays, title: 'Exhibition Management', description: 'Showcase your brand at high-impact business exhibitions' },
   { href: '/services/business-resale', Icon: RefreshCw, title: 'Business Resale', description: 'Smooth, confidential resale of running businesses' },
   { href: '/services/mergers-acquisitions', Icon: Handshake, title: 'Mergers & Acquisitions', description: 'Strategic M&A advisory with top-notch confidentiality' },
   { href: '/services/b2b-consulting', Icon: BarChart3, title: 'B2B Strategic Consulting', description: 'Result-oriented growth strategies for your business' },
