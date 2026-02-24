@@ -76,7 +76,7 @@ export default function HeroSection() {
             transition={{ ...fadeUp.transition, delay: 0.1 }}
             className="font-heading text-sm font-semibold uppercase tracking-wider text-[#4F4F4F]"
           >
-            India&apos;s Growth Consulting Partner
+            POWERING INDIA’S NEXT-GENERATION BRANDS
           </motion.p>
           <motion.h1
             initial={fadeUp.initial}
