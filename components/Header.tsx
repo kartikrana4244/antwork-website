@@ -57,12 +57,12 @@ export default function Header() {
           <img
             src="/logo-antwork.svg"
             alt="AntWork Consultants LLP"
-            className="hidden h-[120px] max-w-full w-auto object-contain md:block"
+            className="hidden h-[80px] sm:h-[100px] lg:h-[120px] w-auto object-contain md:block"
           />
           <img
             src="/logo-antwork.svg"
             alt="AntWork Consultants LLP"
-            className="block h-[60px] max-w-full w-auto object-contain md:hidden"
+            className="block h-[80px] sm:h-[100px] lg:h-[120px] w-auto object-contain md:hidden"
           />
         </Link>
 
