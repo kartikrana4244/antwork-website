@@ -1,11 +1,12 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
+  title: "Contact",
   description:
-    'Contact AntWork Consultants LLP for franchise consulting, business resale, exhibitions, and growth advisory. Book a consultation or reach us via email and phone.',
+    "Contact AntWork Consultants LLP for franchise consulting, business resale, exhibition management, mergers and acquisitions, and strategic growth advisory.",
 };
 
-export default function ContactLayout({ children }: { children: React.ReactNode }) {
+export default function ContactLayout({ children }: { children: ReactNode }) {
   return children;
 }

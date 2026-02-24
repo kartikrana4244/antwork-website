@@ -1,11 +1,12 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: 'Our Services',
+  title: "Services",
   description:
-    'AntWork offers franchise consulting, franchise expansion, exhibition management, business resale, M&A advisory, and B2B strategic consulting. End-to-end growth solutions.',
+    "Explore consulting services from AntWork Consultants LLP, including franchise consulting, franchise expansion, exhibition management, business resale, mergers and acquisitions, and B2B strategic consulting.",
 };
 
-export default function ServicesLayout({ children }: { children: React.ReactNode }) {
+export default function ServicesLayout({ children }: { children: ReactNode }) {
   return children;
 }

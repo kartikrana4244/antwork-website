@@ -1,11 +1,12 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: 'Investor Zone',
+  title: "Investor Zone",
   description:
-    "Invest in India's growing franchise market. Explore franchise and business resale opportunities with AntWork. Transparent process, curated deals, and expert support.",
+    "Explore AntWork Consultants LLP’s Investor Zone for curated franchise and business opportunities, transparent processes, and investment support across sectors in India.",
 };
 
-export default function InvestorZoneLayout({ children }: { children: React.ReactNode }) {
+export default function InvestorZoneLayout({ children }: { children: ReactNode }) {
   return children;
 }

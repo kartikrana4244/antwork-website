@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
@@ -54,14 +55,20 @@ export default function Header() {
     >
       <div className="mx-auto flex min-h-[80px] max-w-7xl items-center justify-between px-4 sm:min-h-[90px] sm:px-6 lg:min-h-[100px] lg:px-8">
         <Link href="/" className="flex shrink-0 items-center" aria-label="AntWork Consultants LLP Home">
-          <img
+          <Image
             src="/logo-antwork.svg"
-            alt="AntWork Consultants LLP"
+            alt="AntWork Consultants LLP logo"
+            width={400}
+            height={160}
+            priority
             className="hidden h-[120px] sm:h-[140px] lg:h-[160px] w-auto object-contain md:block"
           />
-          <img
+          <Image
             src="/logo-antwork.svg"
-            alt="AntWork Consultants LLP"
+            alt="AntWork Consultants LLP logo"
+            width={400}
+            height={160}
+            priority
             className="block h-[120px] sm:h-[140px] lg:h-[160px] w-auto object-contain md:hidden"
           />
         </Link>
