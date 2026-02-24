@@ -1,6 +1,6 @@
 'use client';
 
-const WHATSAPP_NUMBER = '919876543210'; // Replace with actual business number
+const WHATSAPP_NUMBER = '919217167326'; // Updated business number
 const MESSAGE = 'Hi, I would like to know more about AntWork Consultants.';
 
 export default function WhatsAppButton() {
