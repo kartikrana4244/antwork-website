@@ -67,14 +67,35 @@ export default function Footer() {
           {/* Contact & Newsletter */}
           <div>
             <h3 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-[#F2C94C]">Contact</h3>
-            <address className="not-italic text-sm text-gray-300">
+            <address className="not-italic text-sm text-gray-300 space-y-2">
               <p>AntWork Consultants LLP</p>
               <p className="mt-2">India</p>
-              <p className="mt-2">
-                <a href="mailto:info@antwork.in" className="hover:text-[#F2C94C]">info@antwork.in</a>
+              <p className="pt-2 text-xs uppercase tracking-wide text-gray-400">Primary Email</p>
+              <p>
+                <a
+                  href="mailto:office@antworkconsultants.com"
+                  className="break-words hover:text-[#F2C94C]"
+                >
+                  office@antworkconsultants.com
+                </a>
               </p>
-              <p className="mt-2">
-                <a href="tel:+919876543210" className="hover:text-[#F2C94C]">+91 98765 43210</a>
+              <p className="pt-1 text-xs uppercase tracking-wide text-gray-400">Alternate Email</p>
+              <p>
+                <a
+                  href="mailto:antworkconsultants@gmail.com"
+                  className="break-words hover:text-[#F2C94C]"
+                >
+                  antworkconsultants@gmail.com
+                </a>
+              </p>
+              <p className="pt-1 text-xs uppercase tracking-wide text-gray-400">Phone</p>
+              <p>
+                <a
+                  href="tel:+919217167326"
+                  className="hover:text-[#F2C94C]"
+                >
+                  +91 9217167326
+                </a>
               </p>
             </address>
             <div className="mt-6">

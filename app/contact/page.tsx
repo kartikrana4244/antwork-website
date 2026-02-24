@@ -47,17 +47,34 @@ export default function ContactPage() {
             >
               <div className="min-w-0 rounded-2xl border border-white/40 bg-white/70 p-5 shadow-lg backdrop-blur-xl sm:p-8">
                 <h2 className="font-heading text-xl font-bold text-[#4F4F4F] sm:text-2xl">Get in Touch</h2>
-                <address className="mt-6 not-italic">
+                <address className="mt-6 not-italic space-y-2">
                   <p className="font-semibold text-[#4F4F4F]">AntWork Consultants LLP</p>
-                  <p className="mt-4 text-[#4F4F4F]/90">India</p>
-                  <p className="mt-4">
-                    <a href="mailto:info@antwork.in" className="font-medium text-[#F2C94C] hover:underline transition-colors">
-                      info@antwork.in
+                  <p className="text-[#4F4F4F]/90">India</p>
+                  <p className="pt-2 text-sm text-[#4F4F4F]/80">Primary Email</p>
+                  <p>
+                    <a
+                      href="mailto:office@antworkconsultants.com"
+                      className="font-medium text-[#F2C94C] hover:underline transition-colors break-words"
+                    >
+                      office@antworkconsultants.com
                     </a>
                   </p>
-                  <p className="mt-2">
-                    <a href="tel:+919876543210" className="font-medium text-[#F2C94C] hover:underline transition-colors">
-                      +91 98765 43210
+                  <p className="pt-1 text-sm text-[#4F4F4F]/80">Alternate Email</p>
+                  <p>
+                    <a
+                      href="mailto:antworkconsultants@gmail.com"
+                      className="font-medium text-[#F2C94C] hover:underline transition-colors break-words"
+                    >
+                      antworkconsultants@gmail.com
+                    </a>
+                  </p>
+                  <p className="pt-1 text-sm text-[#4F4F4F]/80">Phone</p>
+                  <p>
+                    <a
+                      href="tel:+919217167326"
+                      className="font-medium text-[#F2C94C] hover:underline transition-colors"
+                    >
+                      +91 9217167326
                     </a>
                   </p>
                 </address>
