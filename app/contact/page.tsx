@@ -78,10 +78,17 @@ export default function ContactPage() {
                     </a>
                   </p>
                 </address>
-                <div className="mt-8 aspect-video min-w-0 w-full max-w-full overflow-hidden rounded-xl border border-white/40 bg-white/50 backdrop-blur-sm" aria-hidden="true">
-                  <div className="flex h-full w-full items-center justify-center text-[#4F4F4F]/50">
-                    Map placeholder — embed Google Map here
-                  </div>
+                <div className="mt-8 min-w-0 w-full max-w-full h-[400px] overflow-hidden rounded-xl border border-white/40 bg-white/50 backdrop-blur-sm">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3506.312177399638!2d77.16721707549598!3d28.500253975737195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDMwJzAwLjkiTiA3N8KwMTAnMTEuMyJF!5e0!3m2!1sen!2sin!4v1771919862622!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                    aria-label="AntWork Consultants LLP location on map"
+                  />
                 </div>
                 <Link href="/contact#" className="btn-primary mt-6 inline-flex min-h-[48px] items-center justify-center rounded-xl px-6 py-3">
                   Book Consultation
