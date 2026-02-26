@@ -6,7 +6,7 @@ import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
   {
-    quote: 'AntWork helped us scale from 1 outlet to 12 outlets in 2 years.',
+    quote: 'AntWork Consultants provided valuable guidance and support in our business expansion journey.',
     author: 'Brand Partner',
   },
   {
