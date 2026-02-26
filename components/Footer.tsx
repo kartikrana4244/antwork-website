@@ -117,7 +117,7 @@ export default function Footer() {
             </div>
             <div className="mt-4 flex gap-4">
               <a
-                href="https://www.linkedin.com/company/antwork"
+                href="https://www.linkedin.com/company/antwork-consultants/posts/?feedView=all"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 transition-colors hover:text-[#F2C94C]"
