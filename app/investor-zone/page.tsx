@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Script from 'next/script';
 import ContactForm from '@/components/ContactForm';
 import PageBanner from '@/components/PageBanner';
 
@@ -127,6 +128,46 @@ export default function InvestorZonePage() {
           </div>
         </div>
       </motion.section>
+      <Script
+        id="faq-schema-investor-zone"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'What types of franchise investment opportunities does AntWork offer in India?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'AntWork Consultants LLP curates franchise investment opportunities across sectors such as food and beverage, education, retail, healthcare, beauty and wellness, and services—covering both established brands and emerging concepts.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Are there low investment franchise opportunities available?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'Yes. AntWork regularly works on low investment franchise opportunities in India, across multiple ticket sizes, so investors can choose options that match their capital and risk appetite.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How does AntWork support investors during the franchise selection process?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'AntWork provides curated deal flow, transparent brand information, basic financials and projections shared by brands, and coordinates discussions so investors can evaluate and select the right franchise opportunities in India.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
     </>
   );
 }

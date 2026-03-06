@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Investor Zone",
+  title: "Franchise Investment Opportunities India | Best Franchise Opportunities",
   description:
-    "Explore AntWork Consultants LLP’s Investor Zone for curated franchise and business opportunities, transparent processes, and investment support across sectors in India.",
+    "Discover the best franchise investment opportunities in India. Explore low investment franchise options and curated franchise deals across F&B, retail, education, healthcare and more sectors with AntWork Consultants LLP.",
 };
 
 export default function InvestorZoneLayout({ children }: { children: ReactNode }) {

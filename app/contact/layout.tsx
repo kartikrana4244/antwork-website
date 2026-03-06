@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact Franchise Consultants India | AntWork Consultants LLP",
   description:
-    "Contact AntWork Consultants LLP for franchise consulting, business resale, exhibition management, mergers and acquisitions, and strategic growth advisory.",
+    "Get in touch with India’s trusted franchise business consultants. Contact AntWork Consultants LLP for franchise consulting, franchise expansion, business resale, exhibition management and M&A advisory support.",
 };
 
 export default function ContactLayout({ children }: { children: ReactNode }) {

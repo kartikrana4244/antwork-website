@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '@/components/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'Business Resale',
+  title: 'Business Resale Services India | AntWork Consultants LLP',
   description:
-    'Sell your business confidentially and profitably. AntWork offers business valuation, buyer-seller matching, due diligence, and transition support. 100% confidentiality assured.',
+    'Confidential business resale advisory services in India. AntWork Consultants LLP helps running businesses find the right buyers with valuation support, buyer-seller matching, due diligence and 100% confidentiality.',
 };
 
 export default function BusinessResalePage() {

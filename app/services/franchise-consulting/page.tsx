@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import ServicePageTemplate from '@/components/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'Franchise Consulting',
+  title: 'Franchise Consulting in India | Franchise Expansion Consultants',
   description:
-    'Turn your business into a scalable franchise with AntWork. Feasibility studies, model structuring, legal documentation, and SOP framework. Get franchise consultation today.',
+    'Expert franchise consulting services to convert your business into a scalable franchise model. AntWork helps brands expand across India through structured franchise development and expansion.',
 };
 
 export default function FranchiseConsultingPage() {
   return (
-    <ServicePageTemplate
+    <>
+      <ServicePageTemplate
       title="Franchise Consulting"
       heroTitle="Turn Your Business Into a Franchise Empire"
       overview={
@@ -43,5 +45,46 @@ export default function FranchiseConsultingPage() {
       ]}
       ctaTitle="Get Franchise Consultation"
     />
+      <Script
+        id="faq-schema-franchise-consulting"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'What does a franchise consulting firm like AntWork do in India?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'As a franchise consulting firm in India, AntWork Consultants LLP helps you assess franchise feasibility, structure the franchise model, prepare documentation, and build a scalable franchise development roadmap for your brand.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How can AntWork help expand my brand through franchise development?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'AntWork designs your franchise model, defines territories and commercials, prepares legal and operational documents, and works with our franchise expansion consultants to help you sign the right franchise partners across cities in India.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'When should I hire franchise business consultants in India?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text:
+                    'You should consider hiring franchise business consultants when your concept is proven in at least one or two locations and you are ready to scale through a structured franchise development and expansion strategy in India.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
+    </>
   );
 }

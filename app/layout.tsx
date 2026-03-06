@@ -9,11 +9,12 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.antworkconsultants.com"),
   title: {
-    default: "AntWork Consultants LLP | Franchise Consulting & Business Expansion",
+    default:
+      "AntWork Consultants LLP | Franchise Consulting & Business Expansion India",
     template: "%s | AntWork Consultants LLP",
   },
   description:
-    "AntWork Consultants LLP is a growth-focused consulting firm helping brands expand through franchise consulting, exhibition management, business resale, and mergers & acquisitions across India.",
+    "AntWork Consultants LLP is India's trusted franchise consulting firm. We help brands expand through franchise development, business resale, exhibition management and M&A advisory across 32+ cities.",
   keywords: [
     "AntWork Consultants LLP",
     "Franchise Consulting India",
@@ -23,14 +24,27 @@ export const metadata: Metadata = {
     "Mergers and Acquisitions Consulting India",
     "Business Consulting India",
     "Franchise Expansion Experts",
+    // Primary franchise and brand-side keywords
+    "Franchise consulting in India",
+    "Franchise expansion consultants",
+    "Franchise business consultants",
+    "Franchise development company India",
+    "Brand franchise expansion services",
+    "How to expand brand through franchise",
+    "Franchise development services",
+    // Investor-side keywords
+    "Franchise investment opportunities India",
+    "Best franchise opportunities in India",
+    "Low investment franchise opportunities",
   ],
   authors: [{ name: "AntWork Consultants LLP" }],
   creator: "AntWork Consultants LLP",
   publisher: "AntWork Consultants LLP",
   openGraph: {
-    title: "AntWork Consultants LLP",
+    title:
+      "AntWork Consultants LLP | Franchise Consulting & Business Expansion India",
     description:
-      "Growth-focused consulting firm helping brands expand, scale, and succeed through franchise consulting and strategic advisory.",
+      "AntWork Consultants LLP is India's trusted franchise consulting and business expansion firm. We help brands with franchise development, franchise expansion, business resale, exhibition management and M&A advisory across 32+ cities in India.",
     url: "https://www.antworkconsultants.com",
     siteName: "AntWork Consultants LLP",
     images: [
@@ -84,12 +98,78 @@ export default function RootLayout({
               name: "AntWork Consultants LLP",
               url: "https://www.antworkconsultants.com",
               logo: "https://www.antworkconsultants.com/logo-antwork.svg",
+              description:
+                "AntWork Consultants LLP is India's trusted franchise consulting and business expansion firm. We help brands expand through franchise development, franchise expansion, business resale, exhibition management and M&A advisory across India.",
               email: "office@antworkconsultants.com",
               telephone: "+91 9217167326",
+              serviceArea: {
+                "@type": "Country",
+                name: "India",
+              },
               sameAs: [
                 "https://www.linkedin.com/in/alok-tripathi-97718254",
                 "https://linkedin.com/in/yash-sharma-b9826021b",
               ],
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "AntWork Consultants LLP Services",
+                itemListElement: [
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Franchise Consulting",
+                      description:
+                        "Franchise consulting services to convert businesses into scalable franchise models across India.",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Franchise Expansion",
+                      description:
+                        "Franchise expansion services to help brands grow their franchise network across Indian cities.",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Exhibition Management",
+                      description:
+                        "Exhibition management services to help brands secure and manage premium exhibition spaces.",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Business Resale",
+                      description:
+                        "Confidential business resale advisory services for running businesses in India.",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Mergers & Acquisitions",
+                      description:
+                        "M&A advisory services for acquisitions, mergers, and strategic transactions.",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "B2B Strategic Consulting",
+                      description:
+                        "B2B strategic consulting services for growth, partnerships, and channel development.",
+                    },
+                  },
+                ],
+              },
               address: {
                 "@type": "PostalAddress",
                 addressCountry: "IN",

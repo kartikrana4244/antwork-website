@@ -9,9 +9,9 @@ import CTABanner from '@/components/CTABanner';
 import Testimonials from '@/components/Testimonials';
 
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'Franchise Consulting in India | AntWork Consultants LLP',
   description:
-    'AntWork Consultants LLP is a growth-focused consulting firm specializing in franchise consulting, franchise expansion, exhibition management, business resale, mergers and acquisitions, and B2B strategic consulting across India.',
+    "India's leading franchise consulting firm helping brands expand through franchise routes. 1600+ brands in pipeline, 32 cities, 2500+ deals facilitated.",
 };
 
 export default function Home() {

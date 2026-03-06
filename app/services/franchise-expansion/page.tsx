@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '@/components/ServicePageTemplate';
 
 export const metadata: Metadata = {
-  title: 'Franchise Expansion',
+  title: 'Franchise Expansion Consultants India | Brand Franchise Expansion',
   description:
-    'Scale your franchise across India with AntWork. Territory planning, investor identification, location strategy, and franchise sales management. Expand with confidence.',
+    'Expand your franchise across multiple cities with AntWork’s expert franchise expansion consultants. Proven strategies for sustainable brand franchise expansion and growth in India.',
 };
 
 export default function FranchiseExpansionPage() {
