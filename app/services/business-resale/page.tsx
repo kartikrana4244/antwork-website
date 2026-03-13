@@ -12,6 +12,7 @@ export default function BusinessResalePage() {
     <ServicePageTemplate
       title="Business Resale"
       heroTitle="Sell Your Business. Confidentially. Profitably."
+      heroImage="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200"
       highlight="100% Confidentiality"
       overview={
         <>

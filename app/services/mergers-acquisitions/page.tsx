@@ -12,6 +12,7 @@ export default function MergersAcquisitionsPage() {
     <ServicePageTemplate
       title="Mergers & Acquisitions"
       heroTitle="Strategic M&A Advisory with Top-Notch Confidentiality"
+      heroImage="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200"
       overview={
         <>
           <p>

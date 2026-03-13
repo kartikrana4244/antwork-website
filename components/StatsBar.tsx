@@ -38,15 +38,15 @@ function StatCard({
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       animate={start ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="relative rounded-2xl p-[1px] bg-gradient-to-br from-[#F2C94C] via-[#F8E8A8] to-[#4F4F4F]/30"
+      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] as const }}
+      className="text-center"
     >
-      <div className="rounded-2xl bg-[#4F4F4F] px-4 py-5 text-center sm:px-6 sm:py-8">
-        <p className="font-heading text-2xl font-bold text-[#F2C94C] sm:text-3xl lg:text-4xl">
-          {count.toLocaleString()}{suffix}
-        </p>
-        <p className="mt-1 text-xs font-medium text-white/90 sm:mt-2 sm:text-sm">{label}</p>
-      </div>
+      <p className="font-heading text-3xl font-bold text-[#F2C94C] sm:text-4xl lg:text-5xl">
+        {count.toLocaleString()}{suffix}
+      </p>
+      <p className="mt-2 text-xs font-medium uppercase tracking-widest text-[#A0A0A0] sm:text-sm">
+        {label}
+      </p>
     </motion.div>
   );
 }
@@ -55,7 +55,6 @@ const stats = [
   { value: 1600, suffix: '+', label: 'Brands in Pipeline' },
   { value: 32, suffix: '', label: 'Cities' },
   { value: 2500, suffix: '+', label: 'Deals Facilitated' },
-  { value: 6, suffix: '', label: 'Core Services' },
 ];
 
 export default function StatsBar() {
@@ -63,17 +62,14 @@ export default function StatsBar() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <motion.section
+    <section
       ref={ref}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.6 }}
-      className="bg-gradient-to-b from-[#3d3d3d] to-[#4F4F4F] py-10 sm:py-14 lg:py-20"
+      className="relative overflow-hidden border-y border-[rgba(242,201,76,0.15)] bg-[#111111] py-12 sm:py-16 lg:py-20"
       aria-label="Key statistics"
     >
-      <div className="mx-auto min-w-0 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+      <div className="pointer-events-none absolute right-0 top-0 h-[300px] w-[300px] bg-[radial-gradient(circle,rgba(242,201,76,0.04)_0%,transparent_70%)]" aria-hidden="true" />
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
           {stats.map((stat, i) => (
             <StatCard
               key={stat.label}
@@ -86,6 +82,6 @@ export default function StatsBar() {
           ))}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

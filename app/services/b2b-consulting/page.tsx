@@ -12,6 +12,7 @@ export default function B2BConsultingPage() {
     <ServicePageTemplate
       title="B2B Strategic Consulting"
       heroTitle="Accelerate Your Business Growth"
+      heroImage="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200"
       overview={
         <>
           <p>

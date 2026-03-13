@@ -6,6 +6,10 @@ type ContactFormProps = {
   variant?: 'contact' | 'investor';
 };
 
+const inputClass =
+  'mt-1 min-h-[44px] w-full rounded-lg border border-[rgba(242,201,76,0.2)] bg-[#111111] px-4 py-3 text-sm text-white placeholder-[#555] transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-1 focus:ring-[#F2C94C]/30';
+const labelClass = 'block text-sm font-medium text-[#A0A0A0]';
+
 export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
 
@@ -16,65 +20,30 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
 
   if (variant === 'investor') {
     return (
-      <form onSubmit={handleSubmit} className="min-w-0 space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-[#4F4F4F]">Name</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
-          />
+          <label htmlFor="name" className={labelClass}>Name</label>
+          <input id="name" name="name" type="text" required className={inputClass} />
         </div>
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-[#4F4F4F]">Phone</label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            required
-            className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
-          />
+          <label htmlFor="phone" className={labelClass}>Phone</label>
+          <input id="phone" name="phone" type="tel" required className={inputClass} />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-[#4F4F4F]">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
-          />
+          <label htmlFor="email" className={labelClass}>Email</label>
+          <input id="email" name="email" type="email" required className={inputClass} />
         </div>
         <div>
-          <label htmlFor="budget" className="block text-sm font-medium text-[#4F4F4F]">Investment Budget</label>
-          <input
-            id="budget"
-            name="budget"
-            type="text"
-            placeholder="e.g. 10-25 Lakhs"
-            className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
-          />
+          <label htmlFor="budget" className={labelClass}>Investment Budget</label>
+          <input id="budget" name="budget" type="text" placeholder="e.g. 10-25 Lakhs" className={inputClass} />
         </div>
         <div>
-          <label htmlFor="location" className="block text-sm font-medium text-[#4F4F4F]">Preferred Location</label>
-          <input
-            id="location"
-            name="location"
-            type="text"
-            placeholder="City or region"
-            className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
-          />
+          <label htmlFor="location" className={labelClass}>Preferred Location</label>
+          <input id="location" name="location" type="text" placeholder="City or region" className={inputClass} />
         </div>
         <div>
-          <label htmlFor="interest" className="block text-sm font-medium text-[#4F4F4F]">Interest Type</label>
-          <select
-            id="interest"
-            name="interest"
-            required
-            className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
-          >
+          <label htmlFor="interest" className={labelClass}>Interest Type</label>
+          <select id="interest" name="interest" required className={inputClass}>
             <option value="">Select</option>
             <option value="franchise">Franchise</option>
             <option value="business-resale">Business Resale</option>
@@ -83,7 +52,7 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
         </div>
         <button
           type="submit"
-          className="btn-primary min-h-[48px] w-full rounded-xl py-4"
+          className="min-h-[48px] w-full rounded-lg bg-[#F2C94C] py-3 text-sm font-semibold text-[#0A0A0A] transition-all duration-200 hover:scale-[1.01] hover:bg-[#E0B429]"
         >
           {submitted ? 'Thank you! We will be in touch.' : 'Submit'}
         </button>
@@ -92,65 +61,38 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="min-w-0 space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-[#4F4F4F]">Name</label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          required
-          className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
-        />
+        <label htmlFor="name" className={labelClass}>Name</label>
+        <input id="name" name="name" type="text" required className={inputClass} />
       </div>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-[#4F4F4F]">Email</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
-        />
+        <label htmlFor="email" className={labelClass}>Email</label>
+        <input id="email" name="email" type="email" required className={inputClass} />
       </div>
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-[#4F4F4F]">Phone</label>
-        <input
-          id="phone"
-          name="phone"
-          type="tel"
-          className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
-        />
+        <label htmlFor="phone" className={labelClass}>Phone</label>
+        <input id="phone" name="phone" type="tel" className={inputClass} />
       </div>
       <div>
-        <label htmlFor="service" className="block text-sm font-medium text-[#4F4F4F]">Service Interested</label>
-        <select
-          id="service"
-          name="service"
-          className="mt-1 min-h-[44px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
-        >
+        <label htmlFor="service" className={labelClass}>Service Interested</label>
+        <select id="service" name="service" className={inputClass}>
           <option value="">Select a service</option>
           <option value="franchise-consulting">Franchise Consulting</option>
           <option value="franchise-expansion">Franchise Expansion</option>
           <option value="exhibition">Exhibition Management</option>
           <option value="business-resale">Business Resale</option>
-          <option value="ma">Mergers & Acquisitions</option>
+          <option value="ma">Mergers &amp; Acquisitions</option>
           <option value="b2b">B2B Strategic Consulting</option>
         </select>
       </div>
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-[#4F4F4F]">Message</label>
-        <textarea
-          id="message"
-          name="message"
-          rows={4}
-          required
-          className="mt-1 min-h-[88px] min-w-0 w-full max-w-full rounded-xl border border-gray-300 px-4 py-3 text-base transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-2 focus:ring-[#F2C94C]/20"
-        />
+        <label htmlFor="message" className={labelClass}>Message</label>
+        <textarea id="message" name="message" rows={4} required className={`${inputClass} min-h-[88px]`} />
       </div>
       <button
         type="submit"
-        className="btn-primary min-h-[48px] w-full rounded-xl py-4"
+        className="min-h-[48px] w-full rounded-lg bg-[#F2C94C] py-3 text-sm font-semibold text-[#0A0A0A] transition-all duration-200 hover:scale-[1.01] hover:bg-[#E0B429]"
       >
         {submitted ? 'Thank you! We will get back soon.' : 'Send Message'}
       </button>

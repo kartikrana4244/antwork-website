@@ -1,50 +1,65 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function CTABanner() {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-[#4F4F4F] py-16 sm:py-20"
+    <section
+      className="relative overflow-hidden py-16 sm:py-20"
       aria-label="Call to action"
     >
-      <div className="mx-auto min-w-0 max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <div className="relative">
-          <div className="absolute inset-0 h-1 w-24 mx-auto bg-[#F2C94C]" aria-hidden="true" />
-          <motion.h2
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="break-words font-heading text-3xl font-bold text-white sm:text-4xl"
-          >
-            Ready to Scale Your Business?
-          </motion.h2>
-        </div>
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
+      <Image
+        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920"
+        alt=""
+        fill
+        className="pointer-events-none object-cover"
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+      <div
+        className="absolute inset-0 animate-[gradientShift_6s_ease_infinite] opacity-80"
+        style={{
+          background: 'linear-gradient(135deg, rgba(242,201,76,0.35) 0%, rgba(224,180,41,0.2) 25%, rgba(242,201,76,0.35) 50%, rgba(212,160,23,0.2) 75%, rgba(242,201,76,0.35) 100%)',
+          backgroundSize: '300% 300%',
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="mt-4 text-lg text-white/90"
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }}
+          className="font-heading text-3xl font-bold text-white sm:text-4xl"
+        >
+          Ready to Expand Your Brand?
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] as const }}
+          className="mt-4 text-lg text-white/80"
         >
           Join 1600+ brands that trust AntWork for their growth journey
         </motion.p>
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.15 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] as const }}
         >
-          <Link href="/contact" className="btn-primary mt-8 inline-flex min-h-[48px] items-center justify-center">
-            Schedule a Strategy Call
+          <Link
+            href="/contact"
+            className="mt-8 inline-flex items-center justify-center rounded-md bg-[#F2C94C] px-8 py-3.5 text-sm font-semibold text-[#0A0A0A] transition-all duration-200 hover:scale-[1.02] hover:bg-[#E0B429]"
+          >
+            Contact Us Today
           </Link>
         </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 }

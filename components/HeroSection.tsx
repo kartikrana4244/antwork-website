@@ -62,7 +62,7 @@ export default function HeroSection() {
               duration: p.duration,
               delay: p.delay,
               repeat: Infinity,
-              ease: 'easeInOut',
+              ease: [0.42, 0, 0.58, 1] as const,
             }}
           />
         ))}

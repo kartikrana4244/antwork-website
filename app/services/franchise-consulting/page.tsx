@@ -14,6 +14,7 @@ export default function FranchiseConsultingPage() {
       <ServicePageTemplate
       title="Franchise Consulting"
       heroTitle="Turn Your Business Into a Franchise Empire"
+      heroImage="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=1200"
       overview={
         <>
           <p>

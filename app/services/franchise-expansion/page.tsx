@@ -12,6 +12,7 @@ export default function FranchiseExpansionPage() {
     <ServicePageTemplate
       title="Franchise Expansion"
       heroTitle="Scale Your Franchise Across India"
+      heroImage="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200"
       overview={
         <>
           <p>

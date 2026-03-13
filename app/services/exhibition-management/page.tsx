@@ -12,6 +12,7 @@ export default function ExhibitionManagementPage() {
     <ServicePageTemplate
       title="Exhibition Management"
       heroTitle="Showcase Your Brand to Thousands"
+      heroImage="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200"
       overview={
         <>
           <p>
