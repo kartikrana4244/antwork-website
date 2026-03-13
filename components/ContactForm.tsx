@@ -4,13 +4,10 @@ import { useState } from 'react';
 
 type ContactFormProps = {
   variant?: 'contact' | 'investor';
+  theme?: 'light' | 'dark';
 };
 
-const inputClass =
-  'mt-1 min-h-[44px] w-full rounded-lg border border-[rgba(242,201,76,0.2)] bg-[#111111] px-4 py-3 text-sm text-white placeholder-[#555] transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-1 focus:ring-[#F2C94C]/30';
-const labelClass = 'block text-sm font-medium text-[#A0A0A0]';
-
-export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
+export default function ContactForm({ variant = 'contact', theme = 'dark' }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -18,43 +15,31 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
     setSubmitted(true);
   };
 
+  const inputCls = theme === 'dark'
+    ? 'mt-1 min-h-[44px] w-full rounded-lg border border-white/8 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-white/25 transition-colors focus:border-[#F2C94C] focus:outline-none focus:ring-1 focus:ring-[#F2C94C]/30'
+    : 'mt-1 min-h-[44px] w-full rounded-lg border border-[#e0e0e0] bg-[#FAFAFA] px-4 py-3 text-sm text-[#1A1A1A] placeholder-[#999] transition-colors focus:border-[#F2C94C] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#F2C94C]/30';
+  const labelCls = theme === 'dark' ? 'block text-sm font-medium text-white/55' : 'block text-sm font-medium text-[#555]';
+
   if (variant === 'investor') {
     return (
       <form onSubmit={handleSubmit} className="space-y-4">
+        <div><label htmlFor="name" className={labelCls}>Name</label><input id="name" name="name" type="text" required className={inputCls} /></div>
+        <div><label htmlFor="phone" className={labelCls}>Phone</label><input id="phone" name="phone" type="tel" required className={inputCls} /></div>
+        <div><label htmlFor="email" className={labelCls}>Email</label><input id="email" name="email" type="email" required className={inputCls} /></div>
+        <div><label htmlFor="budget" className={labelCls}>Investment Budget</label><input id="budget" name="budget" type="text" placeholder="e.g. 10-25 Lakhs" className={inputCls} /></div>
+        <div><label htmlFor="location" className={labelCls}>Preferred Location</label><input id="location" name="location" type="text" placeholder="City or region" className={inputCls} /></div>
         <div>
-          <label htmlFor="name" className={labelClass}>Name</label>
-          <input id="name" name="name" type="text" required className={inputClass} />
-        </div>
-        <div>
-          <label htmlFor="phone" className={labelClass}>Phone</label>
-          <input id="phone" name="phone" type="tel" required className={inputClass} />
-        </div>
-        <div>
-          <label htmlFor="email" className={labelClass}>Email</label>
-          <input id="email" name="email" type="email" required className={inputClass} />
-        </div>
-        <div>
-          <label htmlFor="budget" className={labelClass}>Investment Budget</label>
-          <input id="budget" name="budget" type="text" placeholder="e.g. 10-25 Lakhs" className={inputClass} />
-        </div>
-        <div>
-          <label htmlFor="location" className={labelClass}>Preferred Location</label>
-          <input id="location" name="location" type="text" placeholder="City or region" className={inputClass} />
-        </div>
-        <div>
-          <label htmlFor="interest" className={labelClass}>Interest Type</label>
-          <select id="interest" name="interest" required className={inputClass}>
+          <label htmlFor="interest" className={labelCls}>Interest Type</label>
+          <select id="interest" name="interest" required className={inputCls}>
             <option value="">Select</option>
             <option value="franchise">Franchise</option>
             <option value="business-resale">Business Resale</option>
-            <option value="ma">M&A</option>
+            <option value="ma">M&amp;A</option>
           </select>
         </div>
-        <button
-          type="submit"
-          className="min-h-[48px] w-full rounded-lg bg-[#F2C94C] py-3 text-sm font-semibold text-[#0A0A0A] transition-all duration-200 hover:scale-[1.01] hover:bg-[#E0B429]"
-        >
-          {submitted ? 'Thank you! We will be in touch.' : 'Submit'}
+        <button type="submit" className="group relative min-h-[48px] w-full overflow-hidden rounded-md bg-[#F2C94C] py-3 text-sm font-semibold text-[#1A1A1A] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(242,201,76,0.35)]">
+          <span className="relative z-10">{submitted ? 'Thank you! We will be in touch.' : 'Submit'}</span>
+          <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
         </button>
       </form>
     );
@@ -62,21 +47,12 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      <div><label htmlFor="name" className={labelCls}>Name</label><input id="name" name="name" type="text" required className={inputCls} /></div>
+      <div><label htmlFor="email" className={labelCls}>Email</label><input id="email" name="email" type="email" required className={inputCls} /></div>
+      <div><label htmlFor="phone" className={labelCls}>Phone</label><input id="phone" name="phone" type="tel" className={inputCls} /></div>
       <div>
-        <label htmlFor="name" className={labelClass}>Name</label>
-        <input id="name" name="name" type="text" required className={inputClass} />
-      </div>
-      <div>
-        <label htmlFor="email" className={labelClass}>Email</label>
-        <input id="email" name="email" type="email" required className={inputClass} />
-      </div>
-      <div>
-        <label htmlFor="phone" className={labelClass}>Phone</label>
-        <input id="phone" name="phone" type="tel" className={inputClass} />
-      </div>
-      <div>
-        <label htmlFor="service" className={labelClass}>Service Interested</label>
-        <select id="service" name="service" className={inputClass}>
+        <label htmlFor="service" className={labelCls}>Service Interested</label>
+        <select id="service" name="service" className={inputCls}>
           <option value="">Select a service</option>
           <option value="franchise-consulting">Franchise Consulting</option>
           <option value="franchise-expansion">Franchise Expansion</option>
@@ -86,15 +62,10 @@ export default function ContactForm({ variant = 'contact' }: ContactFormProps) {
           <option value="b2b">B2B Strategic Consulting</option>
         </select>
       </div>
-      <div>
-        <label htmlFor="message" className={labelClass}>Message</label>
-        <textarea id="message" name="message" rows={4} required className={`${inputClass} min-h-[88px]`} />
-      </div>
-      <button
-        type="submit"
-        className="min-h-[48px] w-full rounded-lg bg-[#F2C94C] py-3 text-sm font-semibold text-[#0A0A0A] transition-all duration-200 hover:scale-[1.01] hover:bg-[#E0B429]"
-      >
-        {submitted ? 'Thank you! We will get back soon.' : 'Send Message'}
+      <div><label htmlFor="message" className={labelCls}>Message</label><textarea id="message" name="message" rows={4} required className={`${inputCls} min-h-[88px]`} /></div>
+      <button type="submit" className="group relative min-h-[48px] w-full overflow-hidden rounded-md bg-[#F2C94C] py-3 text-sm font-semibold text-[#1A1A1A] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(242,201,76,0.35)]">
+        <span className="relative z-10">{submitted ? 'Thank you! We will get back soon.' : 'Send Message'}</span>
+        <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
       </button>
     </form>
   );

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   Building2,
@@ -14,12 +15,12 @@ import {
 } from 'lucide-react';
 
 const services = [
-  { href: '/services/franchise-consulting', Icon: Building2, title: 'Franchise Consulting', description: 'Convert your business into a scalable franchise model', img: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=400&q=60' },
-  { href: '/services/franchise-expansion', Icon: Rocket, title: 'Franchise Expansion', description: 'Expand your franchise across cities and regions', img: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&q=60' },
-  { href: '/services/exhibition-management', Icon: CalendarDays, title: 'Exhibition Management', description: 'Showcase your brand at high-impact business exhibitions', img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=60' },
-  { href: '/services/business-resale', Icon: RefreshCw, title: 'Business Resale', description: 'Smooth, confidential resale of running businesses', img: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&q=60' },
-  { href: '/services/mergers-acquisitions', Icon: Handshake, title: 'Mergers & Acquisitions', description: 'Strategic M&A advisory with top-notch confidentiality', img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=60' },
-  { href: '/services/b2b-consulting', Icon: BarChart3, title: 'B2B Strategic Consulting', description: 'Result-oriented growth strategies for your business', img: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&q=60' },
+  { href: '/services/franchise-consulting', Icon: Building2, title: 'Franchise Consulting', description: 'Convert your business into a scalable franchise model', img: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=600&q=75' },
+  { href: '/services/franchise-expansion', Icon: Rocket, title: 'Franchise Expansion', description: 'Expand your franchise across cities and regions', img: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=75' },
+  { href: '/services/exhibition-management', Icon: CalendarDays, title: 'Exhibition Management', description: 'Showcase your brand at high-impact business exhibitions', img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=75' },
+  { href: '/services/business-resale', Icon: RefreshCw, title: 'Business Resale', description: 'Smooth, confidential resale of running businesses', img: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&q=75' },
+  { href: '/services/mergers-acquisitions', Icon: Handshake, title: 'Mergers & Acquisitions', description: 'Strategic M&A advisory with top-notch confidentiality', img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=75' },
+  { href: '/services/b2b-consulting', Icon: BarChart3, title: 'B2B Strategic Consulting', description: 'Result-oriented growth strategies for your business', img: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=75' },
 ];
 
 const staggerContainer = {
@@ -28,42 +29,57 @@ const staggerContainer = {
 };
 
 const cardVariant = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const } },
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 export default function ServicesGrid() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    videoRef.current?.play().catch(() => {});
+  }, []);
+
   return (
-    <section className="relative overflow-hidden bg-[#0A0A0A] py-20 sm:py-28" id="services">
-      <Image
-        src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920"
-        alt=""
-        fill
-        className="pointer-events-none object-cover opacity-[0.04]"
-        sizes="100vw"
+    <section className="relative overflow-hidden py-24 sm:py-32" id="services">
+      <video
+        ref={videoRef}
+        className="absolute inset-0 h-full w-full object-cover"
+        src="/videos/services-bg.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]" aria-hidden="true" />
-      <div className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] bg-[radial-gradient(circle,rgba(242,201,76,0.05)_0%,transparent_70%)]" aria-hidden="true" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-[400px] w-[400px] bg-[radial-gradient(circle,rgba(242,201,76,0.04)_0%,transparent_70%)]" aria-hidden="true" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-28 bg-gradient-to-b from-black/80 to-transparent" aria-hidden="true" />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
           className="text-center"
         >
-          <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl lg:text-[48px]">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#F2C94C]">What We Offer</p>
+          <h2 className="mt-3 font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             Our Services
           </h2>
-          <div className="mx-auto mt-3 h-0.5 w-12 bg-[#F2C94C]" aria-hidden="true" />
-          <p className="mt-4 text-base text-[#A0A0A0] sm:text-lg">
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mx-auto mt-4 h-[2px] w-14 origin-center bg-[#F2C94C]"
+          />
+          <p className="mt-5 text-base text-white/70 sm:text-lg">
             End-to-end consulting solutions for your business growth
           </p>
         </motion.div>
 
         <motion.div
-          className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-16 grid gap-7 sm:grid-cols-2 lg:grid-cols-3"
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"
@@ -73,28 +89,31 @@ export default function ServicesGrid() {
             <motion.div key={service.href} variants={cardVariant}>
               <Link
                 href={service.href}
-                className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-[rgba(242,201,76,0.15)] bg-[rgba(255,255,255,0.03)] p-8 backdrop-blur-sm transition-all duration-300 hover:border-[rgba(242,201,76,0.5)] hover:shadow-[0_0_30px_rgba(242,201,76,0.1)]"
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#e8e8e8] bg-white transition-all duration-500 hover:-translate-y-3 hover:border-[#F2C94C]/50 hover:shadow-[0_25px_60px_rgba(0,0,0,0.1)]"
               >
-                <Image
-                  src={service.img}
-                  alt=""
-                  fill
-                  className="pointer-events-none absolute inset-0 object-cover opacity-[0.07] transition-opacity duration-500 group-hover:opacity-[0.12]"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-                <div className="relative z-10 flex h-full flex-col">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[rgba(242,201,76,0.1)] text-[#F2C94C] transition-colors duration-300 group-hover:bg-[rgba(242,201,76,0.2)]">
-                    <service.Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={service.img}
+                    alt=""
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/80 via-[#1A1A1A]/20 to-transparent" />
+                  <div className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-lg bg-[#F2C94C] shadow-lg">
+                    <service.Icon className="h-5 w-5 text-[#1A1A1A]" strokeWidth={2} aria-hidden />
                   </div>
-                  <h3 className="mt-5 font-heading text-lg font-semibold text-white sm:text-xl">
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="font-heading text-lg font-bold text-[#1A1A1A] sm:text-xl">
                     {service.title}
                   </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-[#A0A0A0]">
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-[#666]">
                     {service.description}
                   </p>
-                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#F2C94C] transition-all duration-200 group-hover:gap-2.5">
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#1A1A1A] transition-all duration-300 group-hover:gap-3 group-hover:text-[#F2C94C]">
                     Learn More
-                    <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2} aria-hidden />
                   </span>
                 </div>
               </Link>

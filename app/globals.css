@@ -5,21 +5,18 @@
   --font-inter: 'Inter', system-ui, sans-serif;
   --font-poppins: 'Poppins', system-ui, sans-serif;
   --background: #ffffff;
-  --foreground: #4F4F4F;
+  --foreground: #1a1a1a;
   --primary: #F2C94C;
-  --secondary: #4F4F4F;
-  --light-bg: #F8F8F8;
-  --footer-bg: #2D2D2D;
-  --charcoal: #4F4F4F;
+  --dark: #0A0A0A;
+  --charcoal: #1A1A1A;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: #F2C94C;
-  --color-secondary: #4F4F4F;
-  --color-light: #F8F8F8;
-  --color-footer: #2D2D2D;
+  --color-dark: #0A0A0A;
+  --color-charcoal: #1A1A1A;
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-heading: var(--font-poppins), system-ui, sans-serif;
 }
@@ -29,8 +26,8 @@
 }
 
 body {
-  background: #0A0A0A;
-  color: #ffffff;
+  background: #ffffff;
+  color: #1a1a1a;
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
@@ -43,7 +40,11 @@ html {
   overflow-x: hidden;
 }
 
-/* Touch-friendly buttons (min 44px) */
+::selection {
+  background: rgba(242, 201, 76, 0.3);
+  color: #0A0A0A;
+}
+
 .btn-primary,
 .btn-secondary,
 .btn-outline {
@@ -58,45 +59,24 @@ html {
   }
 }
 
-/* Professional button styles with smooth hover scale */
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-xl px-6 py-3.5 font-semibold text-[#4F4F4F] transition-all duration-300 ease-out;
+  @apply inline-flex items-center justify-center rounded-md px-7 py-3.5 font-semibold text-[#0A0A0A] transition-all duration-300 ease-out;
   background-color: #F2C94C;
 }
 .btn-primary:hover {
   background-color: #e5b83d;
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(242, 201, 76, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(242, 201, 76, 0.35);
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-xl px-6 py-3.5 font-semibold text-white transition-all duration-300 ease-out;
-  background-color: #4F4F4F;
+  @apply inline-flex items-center justify-center rounded-md px-7 py-3.5 font-semibold text-white transition-all duration-300 ease-out;
+  background-color: #1A1A1A;
 }
 .btn-secondary:hover {
-  background-color: #3d3d3d;
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(79, 79, 79, 0.25);
-}
-
-.btn-outline {
-  @apply inline-flex items-center justify-center rounded-xl border-2 border-[#F2C94C] px-6 py-3.5 font-semibold text-[#4F4F4F] transition-all duration-300 ease-out;
-}
-.btn-outline:hover {
-  background-color: rgba(242, 201, 76, 0.1);
-  transform: translateY(-2px) scale(1.02);
-}
-
-/* Premium glassmorphism card */
-.card-glass {
-  @apply rounded-2xl border border-white/40 bg-white/70 shadow-lg backdrop-blur-xl;
-}
-.card-glass-border {
-  @apply rounded-2xl p-[1px];
-  background: linear-gradient(135deg, rgba(242, 201, 76, 0.4) 0%, rgba(255,255,255,0.9) 50%, rgba(79, 79, 79, 0.1) 100%);
-}
-.card-glass-border .card-glass-inner {
-  @apply rounded-2xl bg-white/80 backdrop-blur-xl border border-white/40;
+  background-color: #333;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
 }
 
 @keyframes gradientShift {
@@ -105,19 +85,22 @@ html {
   100% { background-position: 0% 50%; }
 }
 
-@keyframes floatParticle {
-  0% { transform: translateY(0) translateX(0); opacity: 0; }
-  10% { opacity: 0.6; }
-  90% { opacity: 0.6; }
-  100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
-@keyframes subtleGlow {
-  0%, 100% { opacity: 0.03; }
-  50% { opacity: 0.06; }
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(242, 201, 76, 0.4); }
+  50% { box-shadow: 0 0 20px 5px rgba(242, 201, 76, 0); }
 }
 
-@keyframes gridPulse {
-  0%, 100% { opacity: 0.02; }
-  50% { opacity: 0.04; }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }

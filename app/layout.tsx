@@ -5,7 +5,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import FloatingOrbs from "@/components/FloatingOrbs";
+import PageTransition from "@/components/PageTransition";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.antworkconsultants.com"),
@@ -180,10 +180,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-w-0 bg-[#0A0A0A] font-sans text-white antialiased overflow-x-hidden">
-        <FloatingOrbs />
+      <body className="min-w-0 bg-white font-sans text-[#1A1A1A] antialiased overflow-x-hidden">
         <Header />
-        <main className="relative z-10 min-h-screen min-w-0 overflow-x-hidden">{children}</main>
+        <PageTransition>
+          <main className="min-h-screen min-w-0 overflow-x-hidden">{children}</main>
+        </PageTransition>
         <Footer />
         <WhatsAppButton />
         <Analytics />

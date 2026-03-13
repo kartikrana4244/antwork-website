@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import Image from 'next/image';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 
 const steps = [
   { title: 'Consultation & Requirement Analysis', description: 'We understand your goals, market position, and growth aspirations.' },
@@ -13,64 +13,77 @@ const steps = [
 ];
 
 export default function HowWeWork() {
+  const sectionRef = useRef<HTMLElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const lineInView = useInView(lineRef, { once: true, margin: '-20%' });
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
 
   return (
-    <section className="relative overflow-hidden bg-[#111111] py-20 sm:py-28" id="how-we-work">
-      <Image
-        src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920"
-        alt=""
-        fill
-        className="pointer-events-none object-cover opacity-[0.04]"
-        sizes="100vw"
-      />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#111111] via-transparent to-[#111111]" aria-hidden="true" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-[400px] w-[400px] bg-[radial-gradient(circle,rgba(242,201,76,0.04)_0%,transparent_70%)]" aria-hidden="true" />
-      <div className="pointer-events-none absolute left-0 top-0 h-[350px] w-[350px] bg-[radial-gradient(circle,rgba(242,201,76,0.03)_0%,transparent_70%)]" aria-hidden="true" />
+    <section ref={sectionRef} className="relative overflow-hidden bg-[#1A1A1A] py-24 sm:py-32" id="how-we-work">
+      <motion.div className="absolute inset-0" style={{ y: bgY }}>
+        <Image
+          src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920"
+          alt=""
+          fill
+          className="pointer-events-none object-cover opacity-20"
+          sizes="100vw"
+        />
+      </motion.div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A]/90 via-[#1A1A1A]/70 to-[#1A1A1A]/90" aria-hidden="true" />
+
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
           className="text-center"
         >
-          <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl lg:text-[48px]">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#F2C94C]">Our Process</p>
+          <h2 className="mt-3 font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             How We Work
           </h2>
-          <div className="mx-auto mt-3 h-0.5 w-12 bg-[#F2C94C]" aria-hidden="true" />
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mx-auto mt-4 h-[2px] w-14 origin-center bg-[#F2C94C]"
+          />
         </motion.div>
 
-        <div className="relative mt-16">
-          {/* Desktop timeline */}
+        <div className="relative mt-20">
           <div className="hidden lg:block" ref={lineRef}>
             <div className="relative flex justify-between">
-              <div className="absolute left-0 right-0 top-8 h-px bg-[rgba(242,201,76,0.15)]" aria-hidden="true" />
+              <div className="absolute left-0 right-0 top-8 h-px bg-white/8" aria-hidden="true" />
               <motion.div
                 className="absolute left-0 top-8 h-px origin-left bg-[#F2C94C]"
                 initial={{ scaleX: 0 }}
                 animate={lineInView ? { scaleX: 1 } : {}}
-                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
                 style={{ width: '100%' }}
                 aria-hidden="true"
               />
               {steps.map((step, i) => (
                 <motion.div
                   key={step.title}
-                  initial={{ opacity: 0, y: 28 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 + i * 0.1, ease: [0.25, 0.1, 0.25, 1] as const }}
-                  className="relative z-10 flex flex-1 flex-col items-center px-2"
+                  transition={{ duration: 0.6, delay: 0.3 + i * 0.12, ease: [0.22, 1, 0.36, 1] as const }}
+                  className="relative z-10 flex flex-1 flex-col items-center px-3"
                 >
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#F2C94C] bg-[#0A0A0A] text-lg font-bold text-[#F2C94C]">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#F2C94C] bg-[#1A1A1A] text-lg font-bold text-[#F2C94C] shadow-[0_0_20px_rgba(242,201,76,0.15)] transition-shadow hover:shadow-[0_0_30px_rgba(242,201,76,0.3)]">
                     {String(i + 1).padStart(2, '0')}
                   </div>
-                  <h3 className="mt-5 text-center font-heading text-sm font-semibold text-white lg:text-base">
+                  <h3 className="mt-6 text-center font-heading text-sm font-semibold text-white lg:text-base">
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-center text-xs leading-relaxed text-[#A0A0A0] lg:text-sm">
+                  <p className="mt-2 text-center text-xs leading-relaxed text-white/45 lg:text-sm">
                     {step.description}
                   </p>
                 </motion.div>
@@ -78,23 +91,22 @@ export default function HowWeWork() {
             </div>
           </div>
 
-          {/* Mobile vertical */}
-          <div className="space-y-8 lg:hidden">
+          <div className="space-y-6 lg:hidden">
             {steps.map((step, i) => (
               <motion.div
                 key={step.title}
                 initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.06, ease: [0.25, 0.1, 0.25, 1] as const }}
-                className="flex gap-5"
+                transition={{ duration: 0.5, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] as const }}
+                className="flex gap-5 rounded-xl border border-white/8 bg-white/[0.03] p-5 backdrop-blur-sm"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#F2C94C] bg-[#0A0A0A] text-sm font-bold text-[#F2C94C]">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#F2C94C] bg-[#1A1A1A] text-sm font-bold text-[#F2C94C]">
                   {String(i + 1).padStart(2, '0')}
                 </div>
                 <div>
                   <h3 className="font-heading font-semibold text-white">{step.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-[#A0A0A0]">{step.description}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-white/45">{step.description}</p>
                 </div>
               </motion.div>
             ))}

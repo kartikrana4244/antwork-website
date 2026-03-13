@@ -2,23 +2,22 @@ import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <section className="relative flex min-h-[70vh] flex-col items-center justify-center overflow-hidden bg-[#0A0A0A] px-4">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle,rgba(242,201,76,0.06)_0%,transparent_70%)]" aria-hidden="true" />
-      <div className="relative text-center">
-        <p className="font-heading text-6xl font-bold text-[#F2C94C] sm:text-8xl">404</p>
-        <h1 className="mt-4 font-heading text-2xl font-bold text-white sm:text-3xl">
-          Page not found
-        </h1>
-        <p className="mt-3 max-w-md text-[#A0A0A0]">
-          The page you are looking for doesn&apos;t exist or has been moved.
-        </p>
-        <Link
-          href="/"
-          className="mt-8 inline-flex min-h-[48px] items-center justify-center rounded-lg bg-[#F2C94C] px-8 py-3 font-semibold text-[#0A0A0A] transition-all duration-200 hover:scale-[1.02] hover:bg-[#E0B429]"
-        >
-          Back to Home
-        </Link>
-      </div>
+    <section className="flex min-h-[80vh] flex-col items-center justify-center bg-white px-4">
+      <p className="font-heading text-8xl font-extrabold text-[#1A1A1A] sm:text-[140px]">404</p>
+      <div className="mx-auto mt-3 h-[2px] w-16 bg-[#F2C94C]" />
+      <h1 className="mt-7 font-heading text-2xl font-bold text-[#1A1A1A] sm:text-3xl">
+        Page not found
+      </h1>
+      <p className="mt-3 max-w-md text-center text-[#666]">
+        The page you are looking for doesn&apos;t exist or has been moved.
+      </p>
+      <Link
+        href="/"
+        className="group relative mt-9 inline-flex min-h-[48px] items-center justify-center overflow-hidden rounded-md bg-[#1A1A1A] px-9 py-3.5 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(0,0,0,0.2)]"
+      >
+        <span className="relative z-10">Back to Home</span>
+        <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+      </Link>
     </section>
   );
 }

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const navLinks = [
@@ -21,11 +21,26 @@ function isActive(href: string, pathname: string) {
 export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const isHome = pathname === '/';
+  const transparent = isHome && !scrolled;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[rgba(242,201,76,0.1)] bg-[rgba(10,10,10,0.8)] backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        {/* Logo */}
+    <header
+      className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
+        transparent
+          ? 'bg-transparent'
+          : 'bg-white/90 shadow-[0_1px_0_rgba(0,0,0,0.06)] backdrop-blur-xl'
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center" aria-label="AntWork Consultants LLP Home">
           <Image
             src="/logo-antwork.svg"
@@ -33,23 +48,28 @@ export default function Header() {
             width={320}
             height={80}
             priority
-            className="h-[40px] w-auto object-contain sm:h-[60px] lg:h-[72px]"
+            className={`h-[36px] w-auto object-contain transition-all duration-500 sm:h-[50px] lg:h-[60px] ${
+              transparent ? 'brightness-0 invert' : ''
+            }`}
           />
         </Link>
 
-        {/* Desktop navigation */}
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Main navigation">
+        <nav className="hidden items-center gap-9 lg:flex" aria-label="Main navigation">
           {navLinks.map((item) => {
             const active = isActive(item.href, pathname);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className="group relative text-sm font-medium text-white/80 transition-colors hover:text-white"
+                className={`group relative text-[13px] font-semibold uppercase tracking-[0.08em] transition-colors ${
+                  transparent
+                    ? 'text-white/80 hover:text-white'
+                    : 'text-[#555] hover:text-[#1A1A1A]'
+                }`}
               >
                 <span>{item.label}</span>
                 <span
-                  className={`absolute inset-x-0 -bottom-1 h-[2px] origin-left bg-[#F2C94C] transition-transform duration-200 ${
+                  className={`absolute inset-x-0 -bottom-1.5 h-[2px] origin-left bg-[#F2C94C] transition-transform duration-300 ${
                     active ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                   }`}
                 />
@@ -58,25 +78,25 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Desktop CTA */}
         <div className="hidden items-center lg:flex">
           <Link
             href="/contact"
-            className="rounded-md bg-[#F2C94C] px-5 py-2 text-sm font-semibold text-[#0A0A0A] shadow-sm transition-transform transition-colors duration-200 hover:scale-[1.02] hover:bg-[#E0B429]"
+            className="group relative overflow-hidden rounded-md bg-[#F2C94C] px-6 py-2.5 text-[13px] font-semibold text-[#1A1A1A] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(242,201,76,0.3)]"
           >
-            Get Started
+            <span className="relative z-10">Get Started</span>
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-600 group-hover:translate-x-full" />
           </Link>
         </div>
 
-        {/* Mobile menu button */}
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white lg:hidden"
+          className={`inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors lg:hidden ${
+            transparent ? 'text-white hover:bg-white/10' : 'text-[#1A1A1A] hover:bg-black/5'
+          }`}
           aria-label="Toggle navigation"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((open) => !open)}
         >
-          <span className="sr-only">Open main menu</span>
           <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
             {mobileOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -87,18 +107,17 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile nav */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.nav
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] as const }}
-            className="border-t border-[rgba(242,201,76,0.12)] bg-[rgba(10,10,10,0.9)] backdrop-blur-xl lg:hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden border-t border-[#eee] bg-white lg:hidden"
             aria-label="Mobile navigation"
           >
-            <div className="space-y-1 px-4 py-3 sm:px-6">
+            <div className="space-y-1 px-4 py-4 sm:px-6">
               {navLinks.map((item) => {
                 const active = isActive(item.href, pathname);
                 return (
@@ -106,18 +125,18 @@ export default function Header() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`flex items-center justify-between rounded-md px-2 py-2 text-sm font-medium ${
-                      active ? 'text-[#F2C94C]' : 'text-white/80 hover:text-white'
+                    className={`flex items-center rounded-lg px-3 py-3 text-sm font-medium transition-colors ${
+                      active ? 'bg-[#F2C94C]/10 text-[#F2C94C]' : 'text-[#555] hover:bg-[#f5f5f5] hover:text-[#1A1A1A]'
                     }`}
                   >
-                    <span>{item.label}</span>
+                    {item.label}
                   </Link>
                 );
               })}
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 flex w-full items-center justify-center rounded-md bg-[#F2C94C] px-4 py-2 text-sm font-semibold text-[#0A0A0A] transition-transform duration-200 hover:scale-[1.02] hover:bg-[#E0B429]"
+                className="mt-3 flex w-full items-center justify-center rounded-md bg-[#F2C94C] px-4 py-3 text-sm font-semibold text-[#1A1A1A] transition-colors hover:bg-[#E0B429]"
               >
                 Get Started
               </Link>

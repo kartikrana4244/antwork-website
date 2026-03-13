@@ -20,31 +20,25 @@ function useCountUp(end: number, duration: number, start: boolean) {
   return count;
 }
 
-function StatCard({
-  value,
-  suffix,
-  label,
-  start,
-  index,
-}: {
-  value: number;
-  suffix: string;
-  label: string;
-  start: boolean;
-  index: number;
-}) {
-  const count = useCountUp(value, 2200, start);
+function StatCard({ value, suffix, label, start, index }: { value: number; suffix: string; label: string; start: boolean; index: number }) {
+  const count = useCountUp(value, 2400, start);
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 30 }}
       animate={start ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] as const }}
-      className="text-center"
+      transition={{ duration: 0.6, delay: index * 0.2, ease: [0.22, 1, 0.36, 1] as const }}
+      className="relative text-center"
     >
-      <p className="font-heading text-3xl font-bold text-[#F2C94C] sm:text-4xl lg:text-5xl">
+      <p className="font-heading text-5xl font-extrabold text-white drop-shadow-md sm:text-6xl lg:text-7xl">
         {count.toLocaleString()}{suffix}
       </p>
-      <p className="mt-2 text-xs font-medium uppercase tracking-widest text-[#A0A0A0] sm:text-sm">
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={start ? { scaleX: 1 } : {}}
+        transition={{ duration: 0.8, delay: 0.4 + index * 0.2, ease: [0.22, 1, 0.36, 1] as const }}
+        className="mx-auto mt-4 h-[2px] w-10 origin-center bg-[#F2C94C]"
+      />
+      <p className="mt-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/70 sm:text-sm">
         {label}
       </p>
     </motion.div>
@@ -64,21 +58,19 @@ export default function StatsBar() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden border-y border-[rgba(242,201,76,0.15)] bg-[#111111] py-12 sm:py-16 lg:py-20"
+      className="relative overflow-hidden py-12"
       aria-label="Key statistics"
     >
-      <div className="pointer-events-none absolute right-0 top-0 h-[300px] w-[300px] bg-[radial-gradient(circle,rgba(242,201,76,0.04)_0%,transparent_70%)]" aria-hidden="true" />
-      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c')" }}
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
+      <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-4">
           {stats.map((stat, i) => (
-            <StatCard
-              key={stat.label}
-              value={stat.value}
-              suffix={stat.suffix}
-              label={stat.label}
-              start={inView}
-              index={i}
-            />
+            <StatCard key={stat.label} value={stat.value} suffix={stat.suffix} label={stat.label} start={inView} index={i} />
           ))}
         </div>
       </div>

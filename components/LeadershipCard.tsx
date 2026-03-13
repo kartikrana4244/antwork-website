@@ -8,20 +8,20 @@ type Props = {
 export default function LeadershipCard({ name, role, bio, linkedInUrl }: Props) {
   const initials = name.split(' ').map((n) => n[0]).join('');
   return (
-    <div className="rounded-2xl border border-[rgba(242,201,76,0.15)] bg-[rgba(255,255,255,0.03)] p-5 backdrop-blur-sm transition-all duration-300 hover:border-[rgba(242,201,76,0.4)] hover:shadow-[0_0_30px_rgba(242,201,76,0.06)] sm:p-6">
+    <div className="rounded-2xl border border-white/8 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-400 hover:border-[#F2C94C]/30 hover:shadow-[0_0_30px_rgba(242,201,76,0.06)] sm:p-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
-        <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border-2 border-[rgba(242,201,76,0.3)] bg-[#111111] sm:h-24 sm:w-24" aria-hidden="true">
-          <span className="text-2xl font-bold text-[#F2C94C]">{initials}</span>
+        <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-[#F2C94C] shadow-[0_0_20px_rgba(242,201,76,0.2)] sm:h-24 sm:w-24" aria-hidden="true">
+          <span className="text-2xl font-bold text-[#1A1A1A]">{initials}</span>
         </div>
         <div className="min-w-0 flex-1">
           <h3 className="font-heading text-xl font-semibold text-white">{name}</h3>
-          <p className="text-sm font-medium text-[#F2C94C]">{role}</p>
-          <p className="mt-3 break-words text-sm leading-relaxed text-[#A0A0A0]">{bio}</p>
+          <p className="mt-0.5 text-sm font-medium text-[#F2C94C]">{role}</p>
+          <p className="mt-3 break-words text-sm leading-relaxed text-white/50">{bio}</p>
           <a
             href={linkedInUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex min-h-[44px] min-w-[44px] items-center gap-1 text-sm font-medium text-[#A0A0A0] transition-colors hover:text-[#F2C94C] sm:justify-start"
+            className="mt-4 inline-flex min-h-[44px] min-w-[44px] items-center gap-1.5 text-sm font-medium text-white/40 transition-colors hover:text-[#F2C94C] sm:justify-start"
             aria-label={`${name} on LinkedIn`}
           >
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

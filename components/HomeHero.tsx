@@ -4,12 +4,22 @@ import { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-const containerVariants = {
+const wordReveal = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.4 } },
 };
 
-const childVariants = {
+const wordItem = {
+  hidden: { opacity: 0, y: 50, rotateX: -40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as const } },
 };
@@ -29,8 +39,8 @@ export default function HomeHero() {
     if (!ctx) return;
     let raf: number;
     const draw = () => {
-      const w = (canvas.width = canvas.offsetWidth);
-      const h = (canvas.height = canvas.offsetHeight);
+      const w = (canvas.width = canvas.offsetWidth / 2);
+      const h = (canvas.height = canvas.offsetHeight / 2);
       const imgData = ctx.createImageData(w, h);
       const d = imgData.data;
       for (let i = 0; i < d.length; i += 4) {
@@ -38,7 +48,7 @@ export default function HomeHero() {
         d[i] = v;
         d[i + 1] = v;
         d[i + 2] = v;
-        d[i + 3] = 18;
+        d[i + 3] = 14;
       }
       ctx.putImageData(imgData, 0, 0);
       raf = requestAnimationFrame(draw);
@@ -47,8 +57,10 @@ export default function HomeHero() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  const headingWords = ['Ethical', 'Excellence', 'in', 'Every', 'Engagement'];
+
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-[#0A0A0A]">
+    <section className="relative h-screen w-full overflow-hidden bg-[#1A1A1A]">
       <video
         ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
@@ -59,52 +71,68 @@ export default function HomeHero() {
         playsInline
         preload="auto"
       />
-      <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" aria-hidden="true" />
       <canvas
         ref={grainRef}
         className="pointer-events-none absolute inset-0 h-full w-full mix-blend-overlay"
+        style={{ imageRendering: 'pixelated' }}
         aria-hidden="true"
       />
 
       <div className="relative z-10 flex h-full items-center justify-center px-4">
         <motion.div
-          className="mx-auto max-w-4xl text-center"
-          variants={containerVariants}
+          className="mx-auto max-w-5xl text-center"
           initial="hidden"
           animate="show"
         >
           <motion.p
-            variants={childVariants}
-            className="text-[11px] font-semibold tracking-[0.3em] text-[#F2C94C] sm:text-xs"
+            variants={fadeUp}
+            className="text-[11px] font-semibold tracking-[0.35em] text-[#F2C94C] sm:text-xs"
           >
             INDIA&apos;S #1 FRANCHISE CONSULTANTS
           </motion.p>
+
           <motion.h1
-            variants={childVariants}
-            className="mt-4 font-heading text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-[80px]"
+            className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-1 font-heading text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-[88px]"
+            variants={wordReveal}
+            initial="hidden"
+            animate="show"
+            style={{ perspective: 800 }}
           >
-            Ethical Excellence
+            {headingWords.map((word, i) => (
+              <motion.span key={i} variants={wordItem} className="inline-block">
+                {word}
+              </motion.span>
+            ))}
           </motion.h1>
+
           <motion.p
-            variants={childVariants}
-            className="mt-5 text-base text-[#A0A0A0] sm:text-lg md:text-xl"
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            transition={{ delay: 1 }}
+            className="mx-auto mt-6 max-w-2xl text-base text-white/50 sm:text-lg md:text-xl"
           >
             Helping brands expand through franchise routes across 32+ cities in India
           </motion.p>
 
           <motion.div
-            variants={childVariants}
-            className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row"
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            transition={{ delay: 1.2 }}
+            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <Link
               href="/services/franchise-expansion"
-              className="inline-flex items-center justify-center rounded-md bg-[#F2C94C] px-8 py-3.5 text-sm font-semibold text-[#0A0A0A] transition-all duration-200 hover:scale-[1.02] hover:bg-[#E0B429]"
+              className="group relative inline-flex items-center justify-center overflow-hidden rounded-md bg-[#F2C94C] px-9 py-4 text-sm font-semibold text-[#1A1A1A] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(242,201,76,0.35)]"
             >
-              Expand My Brand
+              <span className="relative z-10">Expand My Brand</span>
+              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
             </Link>
             <Link
               href="/investor-zone"
-              className="inline-flex items-center justify-center rounded-md border border-[#F2C94C] px-8 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[rgba(242,201,76,0.1)]"
+              className="inline-flex items-center justify-center rounded-md border border-white/25 px-9 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/50 hover:bg-white/10"
             >
               Find Franchise
             </Link>
@@ -112,16 +140,19 @@ export default function HomeHero() {
         </motion.div>
 
         <motion.div
-          className="pointer-events-none absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1 text-xs text-[#A0A0A0]"
+          className="pointer-events-none absolute bottom-10 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }}
+          transition={{ delay: 1.8, duration: 0.6 }}
         >
-          <span>Scroll</span>
-          <span className="h-5 w-px bg-[#F2C94C]/60" />
-          <svg className="h-4 w-4 text-[#F2C94C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-            <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">Scroll</span>
+          <div className="flex h-10 w-6 items-start justify-center rounded-full border border-white/20 p-1.5">
+            <motion.div
+              className="h-2 w-1 rounded-full bg-[#F2C94C]"
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          </div>
         </motion.div>
       </div>
     </section>

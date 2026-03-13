@@ -7,8 +7,6 @@ import HowWeWork from '@/components/HowWeWork';
 import IndustriesStrip from '@/components/IndustriesStrip';
 import CTABanner from '@/components/CTABanner';
 import Testimonials from '@/components/Testimonials';
-import CursorGlow from '@/components/CursorGlow';
-import GoldDivider from '@/components/GoldDivider';
 
 export const metadata: Metadata = {
   title: 'Franchise Consulting in India | AntWork Consultants LLP',
@@ -18,23 +16,15 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="bg-[#0A0A0A] text-white">
-      <CursorGlow />
+    <>
       <HomeHero />
-      <GoldDivider />
       <StatsBar />
-      <GoldDivider />
       <AboutSnapshot />
-      <GoldDivider />
       <ServicesGrid />
-      <GoldDivider />
       <HowWeWork />
-      <GoldDivider />
       <IndustriesStrip />
-      <GoldDivider />
       <CTABanner />
-      <GoldDivider />
       <Testimonials />
-    </main>
+    </>
   );
 }

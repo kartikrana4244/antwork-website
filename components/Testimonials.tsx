@@ -28,59 +28,66 @@ export default function Testimonials() {
   const current = testimonials[index];
 
   return (
-    <section className="relative overflow-hidden bg-[#0A0A0A] py-20 sm:py-28" aria-label="Client testimonials">
-      <div className="pointer-events-none absolute left-0 bottom-0 h-[400px] w-[400px] bg-[radial-gradient(circle,rgba(242,201,76,0.04)_0%,transparent_70%)]" aria-hidden="true" />
+    <section className="relative overflow-hidden bg-[#1A1A1A] py-24 sm:py-32" aria-label="Client testimonials">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_110%,rgba(242,201,76,0.06),transparent)]" />
       <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }}
-          className="text-center font-heading text-3xl font-bold text-white sm:text-4xl"
+          transition={{ duration: 0.6 }}
+          className="text-center"
         >
-          What Our Clients Say
-        </motion.h2>
-        <div className="mx-auto mt-3 h-0.5 w-12 bg-[#F2C94C]" aria-hidden="true" />
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#F2C94C]">Testimonials</p>
+          <h2 className="mt-3 font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+            What Our Clients Say
+          </h2>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mx-auto mt-4 h-[2px] w-14 origin-center bg-[#F2C94C]"
+          />
+        </motion.div>
 
-        <div className="relative mt-12 overflow-hidden">
+        <div className="relative mt-14 overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -30 }}
-              transition={{ duration: 0.35 }}
-              className="rounded-xl border border-[rgba(242,201,76,0.15)] bg-[rgba(255,255,255,0.03)] p-8 backdrop-blur-sm sm:p-10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
+              className="rounded-2xl border border-white/8 bg-white/[0.04] p-8 backdrop-blur-sm sm:p-12"
             >
-              <div className="flex items-start gap-5">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#F2C94C] bg-[rgba(242,201,76,0.1)]">
-                  <span className="text-lg font-bold text-[#F2C94C]">{current.initials}</span>
+              <div className="flex flex-col items-center text-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#F2C94C] shadow-[0_0_25px_rgba(242,201,76,0.2)]">
+                  <span className="text-xl font-bold text-[#1A1A1A]">{current.initials}</span>
                 </div>
-                <div>
-                  <svg
-                    className="mb-3 h-8 w-8 text-[#F2C94C]/50"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
-                  </svg>
-                  <blockquote className="text-base font-medium leading-relaxed text-white/90 sm:text-lg">
-                    {current.quote}
-                  </blockquote>
-                  <cite className="mt-4 block text-sm font-semibold not-italic text-[#A0A0A0]">
-                    — {current.author}
-                  </cite>
-                </div>
+                <svg
+                  className="mt-6 h-8 w-8 text-[#F2C94C]/40"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
+                </svg>
+                <blockquote className="mt-4 max-w-xl text-lg font-medium leading-relaxed text-white/80 sm:text-xl">
+                  {current.quote}
+                </blockquote>
+                <cite className="mt-5 block text-sm font-semibold not-italic text-white/40">
+                  — {current.author}
+                </cite>
               </div>
             </motion.div>
           </AnimatePresence>
 
-          <div className="mt-6 flex justify-center gap-3">
+          <div className="mt-8 flex justify-center gap-4">
             <button
               type="button"
               onClick={() => setIndex((i) => (i - 1 + testimonials.length) % testimonials.length)}
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-[rgba(242,201,76,0.2)] bg-[rgba(255,255,255,0.03)] text-[#A0A0A0] transition-colors hover:border-[#F2C94C] hover:text-[#F2C94C]"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white/40 transition-all duration-300 hover:border-[#F2C94C] hover:text-[#F2C94C] hover:shadow-[0_0_15px_rgba(242,201,76,0.15)]"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="h-5 w-5" strokeWidth={2} aria-hidden />
@@ -90,8 +97,8 @@ export default function Testimonials() {
                 key={i}
                 type="button"
                 onClick={() => setIndex(i)}
-                className={`h-2 w-2 rounded-full transition-all duration-300 ${
-                  i === index ? 'w-6 bg-[#F2C94C]' : 'bg-[rgba(242,201,76,0.3)]'
+                className={`h-2 rounded-full transition-all duration-400 ${
+                  i === index ? 'w-8 bg-[#F2C94C]' : 'w-2 bg-white/15 hover:bg-white/25'
                 }`}
                 aria-label={`Go to testimonial ${i + 1}`}
               />
@@ -99,7 +106,7 @@ export default function Testimonials() {
             <button
               type="button"
               onClick={() => setIndex((i) => (i + 1) % testimonials.length)}
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-[rgba(242,201,76,0.2)] bg-[rgba(255,255,255,0.03)] text-[#A0A0A0] transition-colors hover:border-[#F2C94C] hover:text-[#F2C94C]"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white/40 transition-all duration-300 hover:border-[#F2C94C] hover:text-[#F2C94C] hover:shadow-[0_0_15px_rgba(242,201,76,0.15)]"
               aria-label="Next testimonial"
             >
               <ChevronRight className="h-5 w-5" strokeWidth={2} aria-hidden />
