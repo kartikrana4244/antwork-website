@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   Building2,
   Rocket,
@@ -30,28 +30,38 @@ const staggerContainer = {
 
 const cardVariant = {
   hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 export default function ServicesGrid() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+  const videoY = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
+  const videoScale = useTransform(scrollYProgress, [0, 0.5, 1], [1.02, 1.05, 1.08]);
 
   useEffect(() => {
     videoRef.current?.play().catch(() => {});
   }, []);
 
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32" id="services">
-      <video
-        ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover"
-        src="/videos/services-bg.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-      />
+    <section ref={sectionRef} className="relative overflow-hidden py-14 sm:py-20" id="services">
+      <motion.div className="absolute inset-0" style={{ y: videoY, scale: videoScale }}>
+        <video
+          ref={videoRef}
+          className="absolute inset-0 h-full w-full object-cover"
+          src="/videos/services-bg.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        />
+      </motion.div>
       <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-28 bg-gradient-to-b from-black/80 to-transparent" aria-hidden="true" />
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -59,7 +69,7 @@ export default function ServicesGrid() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
           className="text-center"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#F2C94C]">What We Offer</p>
@@ -70,7 +80,7 @@ export default function ServicesGrid() {
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] as const }}
             className="mx-auto mt-4 h-[2px] w-14 origin-center bg-[#F2C94C]"
           />
           <p className="mt-5 text-base text-white/70 sm:text-lg">
@@ -89,23 +99,23 @@ export default function ServicesGrid() {
             <motion.div key={service.href} variants={cardVariant}>
               <Link
                 href={service.href}
-                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#e8e8e8] bg-white transition-all duration-500 hover:-translate-y-3 hover:border-[#F2C94C]/50 hover:shadow-[0_25px_60px_rgba(0,0,0,0.1)]"
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#e8e8e8] bg-white transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:border-[#F2C94C]/50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1),0_0_0_1px_rgba(242,201,76,0.1)]"
               >
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={service.img}
                     alt=""
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/80 via-[#1A1A1A]/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-lg bg-[#F2C94C] shadow-lg">
-                    <service.Icon className="h-5 w-5 text-[#1A1A1A]" strokeWidth={2} aria-hidden />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/80 via-[#1A1A1A]/20 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
+                  <div className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-lg bg-[#F2C94C] shadow-lg transition-transform duration-300 group-hover:scale-[1.03] group-hover:shadow-[0_0_18px_rgba(242,201,76,0.35)]">
+                    <service.Icon className="h-5 w-5 text-[#1A1A1A] transition-transform duration-300 group-hover:rotate-[-8deg] group-hover:scale-[1.03]" strokeWidth={2} aria-hidden />
                   </div>
                 </div>
                 <div className="flex flex-1 flex-col p-6">
-                  <h3 className="font-heading text-lg font-bold text-[#1A1A1A] sm:text-xl">
+                  <h3 className="font-heading text-lg font-bold text-[#1A1A1A] transition-colors duration-300 group-hover:text-[#1A1A1A] sm:text-xl">
                     {service.title}
                   </h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-[#666]">
@@ -113,7 +123,7 @@ export default function ServicesGrid() {
                   </p>
                   <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#1A1A1A] transition-all duration-300 group-hover:gap-3 group-hover:text-[#F2C94C]">
                     Learn More
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2} aria-hidden />
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" strokeWidth={2} aria-hidden />
                   </span>
                 </div>
               </Link>

@@ -37,9 +37,9 @@ export default function ContactForm({ variant = 'contact', theme = 'dark' }: Con
             <option value="ma">M&amp;A</option>
           </select>
         </div>
-        <button type="submit" className="group relative min-h-[48px] w-full overflow-hidden rounded-md bg-[#F2C94C] py-3 text-sm font-semibold text-[#1A1A1A] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(242,201,76,0.35)]">
+        <button type="submit" className="group relative min-h-[48px] w-full overflow-hidden rounded-md bg-[#F2C94C] py-3 text-sm font-semibold text-[#1A1A1A] shadow-[0_2px_8px_rgba(242,201,76,0.12)] transition-all duration-200 hover:-translate-y-[2px] hover:shadow-[0_12px_32px_rgba(242,201,76,0.4),0_0_0_1px_rgba(242,201,76,0.15)]">
           <span className="relative z-10">{submitted ? 'Thank you! We will be in touch.' : 'Submit'}</span>
-          <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+          <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
         </button>
       </form>
     );
@@ -63,9 +63,9 @@ export default function ContactForm({ variant = 'contact', theme = 'dark' }: Con
         </select>
       </div>
       <div><label htmlFor="message" className={labelCls}>Message</label><textarea id="message" name="message" rows={4} required className={`${inputCls} min-h-[88px]`} /></div>
-      <button type="submit" className="group relative min-h-[48px] w-full overflow-hidden rounded-md bg-[#F2C94C] py-3 text-sm font-semibold text-[#1A1A1A] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(242,201,76,0.35)]">
+      <button type="submit" className="group relative min-h-[48px] w-full overflow-hidden rounded-md bg-[#F2C94C] py-3 text-sm font-semibold text-[#1A1A1A] shadow-[0_2px_8px_rgba(242,201,76,0.12)] transition-all duration-200 hover:-translate-y-[2px] hover:shadow-[0_12px_32px_rgba(242,201,76,0.4),0_0_0_1px_rgba(242,201,76,0.15)]">
         <span className="relative z-10">{submitted ? 'Thank you! We will get back soon.' : 'Send Message'}</span>
-        <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+        <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
       </button>
     </form>
   );

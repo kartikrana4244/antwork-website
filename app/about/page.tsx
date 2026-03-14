@@ -36,14 +36,16 @@ export default function AboutPage() {
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'About' }]}
       />
 
-      <motion.section ref={imgRef} {...sectionReveal} className="relative overflow-hidden bg-white py-20 sm:py-28">
+      <motion.section ref={imgRef} {...sectionReveal} className="relative overflow-hidden bg-white py-14 sm:py-20">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_80%_20%,rgba(242,201,76,0.05),transparent)]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#F2C94C]/20 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }} className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-shadow duration-300 hover:shadow-[0_18px_45px_rgba(0,0,0,0.12)]">
               <motion.div className="absolute -inset-4" style={{ y: imgY }}>
-                <Image src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800" alt="AntWork Consultants team in a business meeting" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+                <Image src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800" alt="AntWork Consultants team in a business meeting" fill className="object-cover transition-transform duration-300 group-hover:scale-[1.03]" sizes="(max-width: 768px) 100vw, 50vw" />
               </motion.div>
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </motion.div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#F2C94C]">Who We Are</p>
@@ -57,11 +59,11 @@ export default function AboutPage() {
         </div>
       </motion.section>
 
-      <motion.section {...sectionReveal} className="relative overflow-hidden bg-[#1A1A1A] py-20 sm:py-28">
+      <motion.section {...sectionReveal} className="relative overflow-hidden bg-[#1A1A1A] py-14 sm:py-20">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_20%_80%,rgba(242,201,76,0.04),transparent)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="rounded-2xl border border-white/8 bg-white/[0.04] p-7 backdrop-blur-sm sm:p-9">
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="rounded-2xl border border-white/8 bg-white/[0.04] p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#F2C94C]/20 hover:bg-white/[0.06] hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] sm:p-9">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#F2C94C]">Vision</p>
               <h2 className="mt-2 font-heading text-xl font-bold text-white sm:text-2xl">Our Vision</h2>
               <div className="mt-3 h-[2px] w-8 bg-[#F2C94C]" />
@@ -69,7 +71,7 @@ export default function AboutPage() {
                 To become India&apos;s most trusted and result-driven business consulting firm, empowering brands and entrepreneurs to scale nationally and globally.
               </p>
             </motion.div>
-            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }} className="rounded-2xl border border-white/8 bg-white/[0.04] p-7 backdrop-blur-sm sm:p-9">
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }} className="rounded-2xl border border-white/8 bg-white/[0.04] p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#F2C94C]/20 hover:bg-white/[0.06] hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] sm:p-9">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#F2C94C]">Mission</p>
               <h2 className="mt-2 font-heading text-xl font-bold text-white sm:text-2xl">Our Mission</h2>
               <div className="mt-3 h-[2px] w-8 bg-[#F2C94C]" />
@@ -85,7 +87,7 @@ export default function AboutPage() {
         </div>
       </motion.section>
 
-      <motion.section {...sectionReveal} className="relative overflow-hidden bg-[#FAFAFA] py-20 sm:py-28">
+      <motion.section {...sectionReveal} className="relative overflow-hidden bg-[#FAFAFA] py-14 sm:py-20">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#F2C94C]">Principles</p>
@@ -100,7 +102,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.07 }}
-                className="flex flex-col items-center rounded-2xl border border-[#e8e8e8] bg-white p-7 text-center shadow-sm transition-all duration-400 hover:-translate-y-3 hover:border-[#F2C94C]/50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)]"
+                className="flex flex-col items-center rounded-2xl border border-[#e8e8e8] bg-white p-7 text-center shadow-sm transition-all duration-300 hover:-translate-y-3 hover:scale-[1.03] hover:border-[#F2C94C]/50 hover:shadow-[0_25px_60px_rgba(0,0,0,0.1)]"
               >
                 <div className="flex h-13 w-13 items-center justify-center rounded-xl bg-[#1A1A1A] text-[#F2C94C]">
                   <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
@@ -112,7 +114,7 @@ export default function AboutPage() {
         </div>
       </motion.section>
 
-      <motion.section {...sectionReveal} className="relative overflow-hidden bg-[#1A1A1A] py-20 sm:py-28">
+      <motion.section {...sectionReveal} className="relative overflow-hidden bg-[#1A1A1A] py-14 sm:py-20">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_0%,rgba(242,201,76,0.04),transparent)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">

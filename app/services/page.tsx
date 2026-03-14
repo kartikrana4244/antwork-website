@@ -25,7 +25,7 @@ export default function ServicesPage() {
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Services' }]}
       />
 
-      <section className="relative overflow-hidden bg-[#FAFAFA] py-20 sm:py-28">
+      <section className="relative overflow-hidden bg-[#FAFAFA] py-14 sm:py-20">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_20%_80%,rgba(242,201,76,0.05),transparent)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
@@ -39,11 +39,11 @@ export default function ServicesPage() {
               >
                 <Link
                   href={service.href}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#e8e8e8] bg-white transition-all duration-500 hover:-translate-y-3 hover:border-[#F2C94C]/50 hover:shadow-[0_25px_60px_rgba(0,0,0,0.1)]"
+                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#e8e8e8] bg-white transition-all duration-300 hover:-translate-y-3 hover:scale-[1.02] hover:border-[#F2C94C]/50 hover:shadow-[0_30px_70px_rgba(0,0,0,0.12)]"
                 >
                   <div className="relative h-44 overflow-hidden">
-                    <Image src={service.image} alt="" fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 to-transparent" />
+                    <Image src={service.image} alt="" fill className="object-cover transition-transform duration-300 group-hover:scale-[1.03]" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 to-transparent transition-opacity duration-300 group-hover:opacity-80" />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <h2 className="font-heading text-lg font-bold text-[#1A1A1A] transition-colors group-hover:text-[#F2C94C] sm:text-xl">

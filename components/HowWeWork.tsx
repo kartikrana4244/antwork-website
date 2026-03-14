@@ -23,7 +23,8 @@ export default function HowWeWork() {
   const bgY = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-[#1A1A1A] py-24 sm:py-32" id="how-we-work">
+    <section ref={sectionRef} className="relative overflow-hidden bg-[#1A1A1A] py-14 sm:py-20" id="how-we-work">
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-px bg-gradient-to-r from-transparent via-[#F2C94C]/15 to-transparent" />
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <Image
           src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920"
@@ -77,7 +78,7 @@ export default function HowWeWork() {
                   transition={{ duration: 0.6, delay: 0.3 + i * 0.12, ease: [0.22, 1, 0.36, 1] as const }}
                   className="relative z-10 flex flex-1 flex-col items-center px-3"
                 >
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#F2C94C] bg-[#1A1A1A] text-lg font-bold text-[#F2C94C] shadow-[0_0_20px_rgba(242,201,76,0.15)] transition-shadow hover:shadow-[0_0_30px_rgba(242,201,76,0.3)]">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#F2C94C] bg-[#1A1A1A] text-lg font-bold text-[#F2C94C] shadow-[0_0_20px_rgba(242,201,76,0.15)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_35px_rgba(242,201,76,0.35)]">
                     {String(i + 1).padStart(2, '0')}
                   </div>
                   <h3 className="mt-6 text-center font-heading text-sm font-semibold text-white lg:text-base">
@@ -99,7 +100,7 @@ export default function HowWeWork() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] as const }}
-                className="flex gap-5 rounded-xl border border-white/8 bg-white/[0.03] p-5 backdrop-blur-sm"
+                className="flex gap-5 rounded-xl border border-white/8 bg-white/[0.03] p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#F2C94C]/20 hover:bg-white/[0.05] hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)]"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#F2C94C] bg-[#1A1A1A] text-sm font-bold text-[#F2C94C]">
                   {String(i + 1).padStart(2, '0')}

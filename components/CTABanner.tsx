@@ -14,7 +14,7 @@ export default function CTABanner() {
   const bgY = useTransform(scrollYProgress, [0, 1], ['-15%', '15%']);
 
   return (
-    <section ref={ref} className="relative overflow-hidden py-28 sm:py-36" aria-label="Call to action">
+    <section ref={ref} className="relative overflow-hidden py-16 sm:py-20" aria-label="Call to action">
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <Image
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920"
@@ -62,10 +62,10 @@ export default function CTABanner() {
         >
           <Link
             href="/contact"
-            className="group relative mt-8 inline-flex items-center justify-center overflow-hidden rounded-md bg-[#F2C94C] px-10 py-4 text-sm font-semibold text-[#1A1A1A] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(242,201,76,0.4)]"
+            className="group relative mt-8 inline-flex items-center justify-center overflow-hidden rounded-md bg-[#F2C94C] px-10 py-4 text-sm font-semibold text-[#1A1A1A] shadow-[0_2px_8px_rgba(242,201,76,0.15)] transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_16px_40px_rgba(242,201,76,0.45),0_0_0_1px_rgba(242,201,76,0.2)]"
           >
             <span className="relative z-10">Contact Us Today</span>
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
           </Link>
         </motion.div>
       </div>

@@ -15,8 +15,9 @@ export default function ContactPage() {
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
       />
 
-      <section className="relative overflow-hidden bg-white py-20 sm:py-28">
+      <section className="relative overflow-hidden bg-white py-14 sm:py-20">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_80%_20%,rgba(242,201,76,0.04),transparent)]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#e8e8e8] to-transparent" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
             <motion.div
@@ -24,7 +25,7 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="rounded-2xl border border-[#e8e8e8] bg-white p-7 shadow-sm sm:p-9"
+              className="rounded-2xl border border-[#e8e8e8] bg-white p-7 shadow-sm transition-shadow duration-300 hover:shadow-lg sm:p-9"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#F2C94C]">Message</p>
               <h2 className="mt-2 font-heading text-xl font-bold text-[#1A1A1A] sm:text-2xl">Send a Message</h2>
@@ -42,7 +43,7 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               className="space-y-7"
             >
-              <div className="rounded-2xl border border-[#e8e8e8] bg-white p-7 shadow-sm sm:p-9">
+              <div className="rounded-2xl border border-[#e8e8e8] bg-white p-7 shadow-sm transition-shadow duration-300 hover:shadow-lg sm:p-9">
                 <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#F2C94C]">Details</p>
                 <h2 className="mt-2 font-heading text-xl font-bold text-[#1A1A1A] sm:text-2xl">Get in Touch</h2>
                 <div className="mt-3 h-[2px] w-10 bg-[#F2C94C]" />
@@ -70,17 +71,18 @@ export default function ContactPage() {
                 </address>
               </div>
 
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl lg:aspect-auto lg:h-[300px]">
+              <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl lg:aspect-auto lg:h-[300px]">
                 <Image
                   src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800"
                   alt="Modern corporate office"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </div>
 
-              <div className="h-[400px] w-full overflow-hidden rounded-2xl">
+              <div className="h-[400px] w-full overflow-hidden rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3506.312177399638!2d77.16721707549598!3d28.500253975737195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDMwJzAwLjkiTiA3N8KwMTAnMTEuMyJF!5e0!3m2!1sen!2sin!4v1771919862622!5m2!1sen!2sin"
                   width="100%"

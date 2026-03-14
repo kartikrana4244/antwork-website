@@ -34,7 +34,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
+      className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
         transparent
           ? 'bg-transparent'
           : 'bg-white/90 shadow-[0_1px_0_rgba(0,0,0,0.06)] backdrop-blur-xl'
@@ -48,7 +48,7 @@ export default function Header() {
             width={320}
             height={80}
             priority
-            className={`h-[36px] w-auto object-contain transition-all duration-500 sm:h-[50px] lg:h-[60px] ${
+            className={`h-[36px] w-auto object-contain transition-all duration-300 sm:h-[50px] lg:h-[60px] ${
               transparent ? 'brightness-0 invert' : ''
             }`}
           />
@@ -81,10 +81,10 @@ export default function Header() {
         <div className="hidden items-center lg:flex">
           <Link
             href="/contact"
-            className="group relative overflow-hidden rounded-md bg-[#F2C94C] px-6 py-2.5 text-[13px] font-semibold text-[#1A1A1A] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(242,201,76,0.3)]"
+            className="group relative overflow-hidden rounded-md bg-[#F2C94C] px-6 py-2.5 text-[13px] font-semibold text-[#1A1A1A] shadow-[0_1px_4px_rgba(242,201,76,0.12)] transition-all duration-200 hover:-translate-y-[2px] hover:shadow-[0_10px_28px_rgba(242,201,76,0.35),0_0_0_1px_rgba(242,201,76,0.15)]"
           >
             <span className="relative z-10">Get Started</span>
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-600 group-hover:translate-x-full" />
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
           </Link>
         </div>
 
@@ -136,7 +136,7 @@ export default function Header() {
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-3 flex w-full items-center justify-center rounded-md bg-[#F2C94C] px-4 py-3 text-sm font-semibold text-[#1A1A1A] transition-colors hover:bg-[#E0B429]"
+                className="mt-3 flex w-full items-center justify-center rounded-md bg-[#F2C94C] px-4 py-3 text-sm font-semibold text-[#1A1A1A] transition-all duration-200 hover:bg-[#E0B429] hover:shadow-[0_8px_24px_rgba(242,201,76,0.3)]"
               >
                 Get Started
               </Link>

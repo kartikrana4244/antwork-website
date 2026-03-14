@@ -13,10 +13,10 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="group relative mt-9 inline-flex min-h-[48px] items-center justify-center overflow-hidden rounded-md bg-[#1A1A1A] px-9 py-3.5 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(0,0,0,0.2)]"
+        className="group relative mt-9 inline-flex min-h-[48px] items-center justify-center overflow-hidden rounded-md bg-[#1A1A1A] px-9 py-3.5 font-semibold text-white shadow-[0_2px_8px_rgba(0,0,0,0.1)] transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_14px_36px_rgba(0,0,0,0.25),0_0_0_1px_rgba(242,201,76,0.15)]"
       >
         <span className="relative z-10">Back to Home</span>
-        <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+        <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
       </Link>
     </section>
   );

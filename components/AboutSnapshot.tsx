@@ -26,7 +26,7 @@ export default function AboutSnapshot() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-[#1A1A1A] py-24 sm:py-32" id="about">
+    <section ref={sectionRef} className="relative overflow-hidden bg-[#1A1A1A] py-14 sm:py-20" id="about">
       <video
         ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
@@ -45,14 +45,14 @@ export default function AboutSnapshot() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
-            className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl"
+            className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-shadow duration-300 hover:shadow-[0_24px_56px_rgba(0,0,0,0.35)]"
           >
             <motion.div className="absolute -inset-4" style={{ y: imageY }}>
               <Image
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200"
                 alt="Business consulting meeting"
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </motion.div>
@@ -113,10 +113,10 @@ export default function AboutSnapshot() {
             >
               <Link
                 href="/about"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-md bg-[#F2C94C] px-7 py-3.5 text-sm font-semibold text-[#1A1A1A] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(242,201,76,0.3)]"
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-md bg-[#F2C94C] px-7 py-3.5 text-sm font-semibold text-[#1A1A1A] shadow-[0_2px_8px_rgba(242,201,76,0.15)] transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_14px_36px_rgba(242,201,76,0.4),0_0_0_1px_rgba(242,201,76,0.2)]"
               >
                 <span className="relative z-10">Learn More About Us</span>
-                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
               </Link>
             </motion.div>
           </motion.div>

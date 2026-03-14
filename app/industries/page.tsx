@@ -34,7 +34,7 @@ export default function IndustriesPage() {
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Industries' }]}
       />
 
-      <section className="relative overflow-hidden bg-white py-20 sm:py-28">
+      <section className="relative overflow-hidden bg-white py-14 sm:py-20">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_80%_20%,rgba(242,201,76,0.05),transparent)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
@@ -45,13 +45,13 @@ export default function IndustriesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] as const }}
-                className="group relative overflow-hidden rounded-2xl border border-[#e8e8e8] bg-white transition-all duration-500 hover:-translate-y-3 hover:border-[#F2C94C]/50 hover:shadow-[0_25px_60px_rgba(0,0,0,0.1)]"
+                className="group relative overflow-hidden rounded-2xl border border-[#e8e8e8] bg-white transition-all duration-300 hover:-translate-y-3 hover:scale-[1.02] hover:border-[#F2C94C]/50 hover:shadow-[0_30px_70px_rgba(0,0,0,0.12)]"
               >
                 <div className="relative h-44 overflow-hidden">
-                  <Image src={image} alt="" fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-lg bg-[#F2C94C] shadow-lg">
-                    <Icon className="h-5 w-5 text-[#1A1A1A]" strokeWidth={2} aria-hidden />
+                  <Image src={image} alt="" fill className="object-cover transition-transform duration-300 group-hover:scale-[1.03]" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 to-transparent transition-opacity duration-300 group-hover:opacity-80" />
+                  <div className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-lg bg-[#F2C94C] shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(242,201,76,0.4)]">
+                    <Icon className="h-5 w-5 text-[#1A1A1A] transition-transform duration-300 group-hover:rotate-[-8deg]" strokeWidth={2} aria-hidden />
                   </div>
                 </div>
                 <div className="p-6">
@@ -64,15 +64,23 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      <section className="bg-[#1A1A1A] py-14">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <p className="text-lg text-white/55">
+      <section className="relative overflow-hidden bg-[#1A1A1A] py-14">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_50%,rgba(242,201,76,0.04),transparent)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#F2C94C]/20 to-transparent" />
+        <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-lg text-white/55"
+          >
             Your industry not listed? We often work with adjacent sectors.{' '}
             <Link href="/contact" className="font-semibold text-[#F2C94C] transition-colors hover:text-[#E0B429]">
               Get in touch
             </Link>{' '}
             to discuss your requirements.
-          </p>
+          </motion.p>
         </div>
       </section>
     </>

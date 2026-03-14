@@ -60,23 +60,25 @@ html {
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-md px-7 py-3.5 font-semibold text-[#0A0A0A] transition-all duration-300 ease-out;
+  @apply inline-flex items-center justify-center rounded-md px-7 py-3.5 font-semibold text-[#0A0A0A] transition-all duration-200 ease-out;
   background-color: #F2C94C;
+  box-shadow: 0 2px 8px rgba(242, 201, 76, 0.15);
 }
 .btn-primary:hover {
   background-color: #e5b83d;
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(242, 201, 76, 0.35);
+  box-shadow: 0 16px 40px rgba(242, 201, 76, 0.4), 0 0 0 1px rgba(242, 201, 76, 0.2);
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-md px-7 py-3.5 font-semibold text-white transition-all duration-300 ease-out;
+  @apply inline-flex items-center justify-center rounded-md px-7 py-3.5 font-semibold text-white transition-all duration-200 ease-out;
   background-color: #1A1A1A;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 .btn-secondary:hover {
   background-color: #333;
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(242, 201, 76, 0.12);
 }
 
 @keyframes gradientShift {
@@ -103,4 +105,29 @@ html {
 @keyframes scroll-bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(6px); }
+}
+
+/* Continuous sliders: linear motion, GPU-friendly */
+.brands-slider .swiper-wrapper,
+.industries-slider .swiper-wrapper {
+  transition-timing-function: linear !important;
+  will-change: transform;
+}
+
+.brands-slider,
+.industries-slider {
+  contain: layout style paint;
+}
+
+@keyframes subtle-glow {
+  0%, 100% { opacity: 0.03; }
+  50% { opacity: 0.06; }
+}
+
+img {
+  border-radius: inherit;
+}
+
+a, button {
+  -webkit-tap-highlight-color: transparent;
 }

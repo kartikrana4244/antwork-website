@@ -8,7 +8,7 @@ type Props = {
 export default function LeadershipCard({ name, role, bio, linkedInUrl }: Props) {
   const initials = name.split(' ').map((n) => n[0]).join('');
   return (
-    <div className="rounded-2xl border border-white/8 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-400 hover:border-[#F2C94C]/30 hover:shadow-[0_0_30px_rgba(242,201,76,0.06)] sm:p-8">
+    <div className="rounded-2xl border border-white/8 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#F2C94C]/30 hover:bg-white/[0.06] hover:shadow-[0_15px_40px_rgba(0,0,0,0.3),0_0_25px_rgba(242,201,76,0.06)] sm:p-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
         <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-[#F2C94C] shadow-[0_0_20px_rgba(242,201,76,0.2)] sm:h-24 sm:w-24" aria-hidden="true">
           <span className="text-2xl font-bold text-[#1A1A1A]">{initials}</span>
