@@ -63,10 +63,8 @@ export default function ContactPage() {
                     </a>
                   </p>
                   <p className="pt-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#999]">Phone</p>
-                  <p>
-                    <a href="tel:+919217167326" className="font-medium text-[#1A1A1A] transition-colors hover:text-[#F2C94C]">
-                      +91 9217167326
-                    </a>
+                  <p className="font-medium text-[#1A1A1A]">
+                    Coming soon
                   </p>
                 </address>
               </div>

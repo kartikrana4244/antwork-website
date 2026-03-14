@@ -1,6 +1,6 @@
 'use client';
 
-const WHATSAPP_NUMBER = '919217167326'; // Updated business number
+const WHATSAPP_NUMBER = ''; // Temporarily disabled phone number
 const MESSAGE = 'Hi, I would like to know more about AntWork Consultants.';
 
 export default function WhatsAppButton() {

@@ -103,7 +103,6 @@ export default function RootLayout({
               description:
                 "AntWork Consultants LLP is India's trusted franchise consulting and business expansion firm. We help brands expand through franchise development, franchise expansion, business resale, exhibition management and M&A advisory across India.",
               email: "office@antworkconsultants.com",
-              telephone: "+91 9217167326",
               serviceArea: {
                 "@type": "Country",
                 name: "India",
