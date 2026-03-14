@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -40,18 +39,16 @@ export default function Header() {
           : 'bg-white/90 shadow-[0_1px_0_rgba(0,0,0,0.06)] backdrop-blur-xl'
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center" aria-label="AntWork Consultants LLP Home">
-          <Image
-            src="/logo-antwork.svg"
-            alt="AntWork Consultants LLP logo"
-            width={320}
-            height={80}
-            priority
-            className={`h-[36px] w-auto object-contain transition-all duration-300 sm:h-[50px] lg:h-[60px] ${
-              transparent ? 'brightness-0 invert' : ''
-            }`}
-          />
+      <div className="mx-auto flex max-w-7xl items-center justify-between py-5 pl-0 pr-4 sm:pl-2 sm:pr-6 lg:pl-4 lg:pr-8">
+        <Link href="/" className="ml-0 flex items-center" aria-label="AntWork Consultants LLP Home">
+          <span className="flex h-[44px] w-[120px] flex-shrink-0 items-center justify-center overflow-hidden md:h-[70px] md:w-[200px]">
+            <img
+              src="/logo-antwork.svg"
+              alt="AntWork Consultants"
+              className="h-[105px] w-auto max-w-none object-contain object-center md:h-[170px]"
+              style={{ filter: 'none' }}
+            />
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex" aria-label="Main navigation">

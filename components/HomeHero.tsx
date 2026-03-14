@@ -26,7 +26,6 @@ const fadeUp = {
 
 export default function HomeHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const grainRef = useRef<HTMLCanvasElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -34,10 +33,8 @@ export default function HomeHero() {
     offset: ['start start', 'end start'],
   });
 
-  const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 0.7, 0.9]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
+  const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
   const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
 
@@ -45,59 +42,25 @@ export default function HomeHero() {
     videoRef.current?.play().catch(() => {});
   }, []);
 
-  useEffect(() => {
-    const canvas = grainRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    let raf: number;
-    const draw = () => {
-      const w = (canvas.width = canvas.offsetWidth / 2);
-      const h = (canvas.height = canvas.offsetHeight / 2);
-      const imgData = ctx.createImageData(w, h);
-      const d = imgData.data;
-      for (let i = 0; i < d.length; i += 4) {
-        const v = Math.random() * 255;
-        d[i] = v;
-        d[i + 1] = v;
-        d[i + 2] = v;
-        d[i + 3] = 14;
-      }
-      ctx.putImageData(imgData, 0, 0);
-      raf = requestAnimationFrame(draw);
-    };
-    draw();
-    return () => cancelAnimationFrame(raf);
-  }, []);
-
   const headingWords = ['Ethical', 'Excellence', 'in', 'Every', 'Engagement'];
 
   return (
-    <section ref={sectionRef} className="relative h-screen w-full overflow-hidden bg-[#1A1A1A]">
-      <motion.div
-        className="absolute inset-0"
-        style={{ y: videoY, scale: videoScale }}
-      >
+    <section ref={sectionRef} className="relative h-screen w-full overflow-hidden bg-black">
+      <motion.div className="absolute inset-0" style={{ y: videoY }}>
         <video
           ref={videoRef}
-          className="absolute inset-0 h-full w-full object-cover"
-          src="/hero-video.mp4"
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-        />
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
       </motion.div>
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"
-        style={{ opacity: overlayOpacity }}
-        aria-hidden="true"
-      />
-      <canvas
-        ref={grainRef}
-        className="pointer-events-none absolute inset-0 h-full w-full mix-blend-overlay"
-        style={{ imageRendering: 'pixelated' }}
+      <div
+        className="absolute inset-0 bg-black/20"
         aria-hidden="true"
       />
 
