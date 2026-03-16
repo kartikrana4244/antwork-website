@@ -104,7 +104,7 @@ export default function Footer() {
                   <p className="pt-1 text-xs font-semibold uppercase tracking-[0.15em] text-white/20">Alternate Email</p>
                   <p><a href="mailto:antworkconsultants@gmail.com" className="break-words transition-colors duration-200 hover:text-[#F2C94C]">antworkconsultants@gmail.com</a></p>
                   <p className="pt-1 text-xs font-semibold uppercase tracking-[0.15em] text-white/20">Phone</p>
-                  <p className="text-sm text-white/40">Coming soon</p>
+                  <p><a href="tel:+919289228898" className="text-sm text-white/40 transition-colors duration-200 hover:text-[#F2C94C]">+91 92892 28898</a></p>
                 </div>
               </address>
             </div>

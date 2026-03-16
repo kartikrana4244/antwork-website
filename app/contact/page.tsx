@@ -64,7 +64,9 @@ export default function ContactPage() {
                   </p>
                   <p className="pt-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#999]">Phone</p>
                   <p className="font-medium text-[#1A1A1A]">
-                    Coming soon
+                    <a href="tel:+919289228898" className="transition-colors hover:text-[#F2C94C]">
+                      +91 92892 28898
+                    </a>
                   </p>
                 </address>
               </div>
