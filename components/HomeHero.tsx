@@ -1,153 +1,210 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
-const wordReveal = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08, delayChildren: 0.4 } },
-};
-
-const wordItem = {
-  hidden: { opacity: 0, y: 50, rotateX: -40 },
-  show: {
+const textContainerVariants = {
+  initial: { opacity: 0, y: 32 },
+  animate: {
     opacity: 1,
     y: 0,
-    rotateX: 0,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+    transition: {
+      duration: 0.9,
+      ease: [0.22, 1, 0.36, 1] as const,
+      staggerChildren: 0.12,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
   },
 };
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as const } },
+const textItemVariants = {
+  initial: { opacity: 0, y: 24 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.65,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -12,
+    transition: {
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
 };
 
+const slides = [
+  {
+    title: 'Franchise Marketing',
+    description:
+      'Grow your franchise network with powerful marketing strategies that connect you with the right buyers.',
+    button: 'Start Growing Today',
+    href: '/services/franchise-expansion',
+    video: '/videos/15470063_1920_1080_50fps.mp4',
+  },
+  {
+    title: 'Investor Relations',
+    description:
+      'Connect your brand with serious investors and expand your franchise footprint faster.',
+    button: 'Find Investors',
+    href: '/investor-zone',
+    video: '/videos/15175124_3840_2160_30fps.mp4',
+  },
+  {
+    title: 'Business Expansion',
+    description:
+      'Scale your brand across new markets with a strong franchise growth strategy.',
+    button: 'Explore Opportunities',
+    href: '/services',
+    video: '/videos/15370702_3840_2160_30fps.mp4',
+  },
+  {
+    title: 'Franchise Consulting',
+    description:
+      'We help brands scale through powerful franchise consulting and growth strategies.',
+    button: 'Start Your Franchise Journey',
+    href: '/services/franchise-consulting',
+    video: '/videos/hero-video.mp4',
+  },
+];
+
 export default function HomeHero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end start'],
-  });
-
-  const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
-  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-  const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    videoRef.current?.play().catch(() => {});
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 8000);
+
+    return () => clearInterval(interval);
   }, []);
 
-  const headingWords = ['Ethical', 'Excellence', 'in', 'Every', 'Engagement'];
+  const activeSlide = slides[currentSlide];
 
   return (
-    <section ref={sectionRef} className="relative h-screen w-full overflow-hidden bg-black">
-      <motion.div className="absolute inset-0" style={{ y: videoY }}>
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
-      </motion.div>
-      <div
-        className="absolute inset-0 bg-black/20"
-        aria-hidden="true"
-      />
-
-      <motion.div
-        className="relative z-10 flex h-full items-center justify-center px-4"
-        style={{ y: contentY, opacity: contentOpacity }}
-      >
-        <motion.div
-          className="mx-auto max-w-5xl text-center"
-          initial="hidden"
-          animate="show"
-        >
-          <motion.p
-            variants={fadeUp}
-            className="text-[11px] font-semibold tracking-[0.35em] text-[#F2C94C] sm:text-xs"
-          >
-            INDIA&apos;S #1 FRANCHISE CONSULTANTS
-          </motion.p>
-
-          <motion.h1
-            className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-1 font-heading text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-[88px]"
-            variants={wordReveal}
-            initial="hidden"
-            animate="show"
-            style={{ perspective: 800 }}
-          >
-            {headingWords.map((word, i) => (
-              <motion.span key={i} variants={wordItem} className="inline-block">
-                {word}
-              </motion.span>
-            ))}
-          </motion.h1>
-
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            transition={{ delay: 1 }}
-            className="mx-auto mt-6 max-w-2xl text-base text-white/60 sm:text-lg md:text-xl"
-          >
-            Helping brands expand through franchise routes across 32+ cities in India
-          </motion.p>
-
+    <section className="relative min-h-screen overflow-hidden bg-[#050505]">
+      {/* Background video slider */}
+      <div className="absolute inset-0">
+        {slides.map((slide, index) => (
           <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            transition={{ delay: 1.2 }}
-            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+            key={slide.video}
+            initial={false}
+            animate={{ opacity: index === currentSlide ? 1 : 0 }}
+            transition={{
+              duration: 0.9,
+              ease: [0.22, 1, 0.36, 1] as const,
+            }}
+            className="absolute inset-0"
           >
-            <Link
-              href="/services/franchise-expansion"
-              className="group relative inline-flex items-center justify-center overflow-hidden rounded-md bg-[#F2C94C] px-9 py-4 text-sm font-semibold text-[#1A1A1A] shadow-[0_2px_8px_rgba(242,201,76,0.15)] transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_16px_40px_rgba(242,201,76,0.4),0_0_0_1px_rgba(242,201,76,0.2)]"
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              className="h-full w-full object-cover"
             >
-              <span className="relative z-10">Expand My Brand</span>
-              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
-            </Link>
-            <Link
-              href="/investor-zone"
-              className="inline-flex items-center justify-center rounded-md border border-white/25 px-9 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:-translate-y-[3px] hover:border-white/50 hover:bg-white/10 hover:shadow-[0_12px_30px_rgba(255,255,255,0.06),0_0_0_1px_rgba(255,255,255,0.1)]"
-            >
-              Find Franchise
-            </Link>
+              <source src={slide.video} type="video/mp4" />
+            </video>
           </motion.div>
-        </motion.div>
-      </motion.div>
+        ))}
 
-      <motion.div
-        className="pointer-events-none absolute bottom-10 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2"
-        style={{ opacity: scrollIndicatorOpacity }}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.8, duration: 0.6 }}
-          className="flex flex-col items-center gap-2"
-        >
-          <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">Scroll</span>
-          <div className="flex h-10 w-6 items-start justify-center rounded-full border border-white/20 p-1.5">
+        {/* Dark + gold overlay to keep text readable */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(242,201,76,0.18),transparent_55%),radial-gradient(circle_at_bottom,_rgba(0,0,0,0.3),transparent_65%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-[#050505]" />
+      </div>
+
+      {/* Foreground content */}
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center justify-center px-4 py-16 sm:px-6 lg:px-8">
+        <div className="w-full max-w-2xl text-center">
+          <AnimatePresence mode="wait">
             <motion.div
-              className="h-2 w-1 rounded-full bg-[#F2C94C]"
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-            />
-          </div>
-        </motion.div>
-      </motion.div>
+              key={currentSlide}
+              variants={textContainerVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="text-center"
+            >
+              <motion.p
+                variants={textItemVariants}
+                className="text-[11px] font-semibold tracking-[0.35em] text-[#F2C94C] sm:text-xs"
+              >
+                INDIA&apos;S #1 FRANCHISE CONSULTANTS
+              </motion.p>
+
+              <motion.h1
+                variants={textItemVariants}
+                className="mt-5 font-heading text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl md:text-[3.25rem] lg:text-[3.6rem]"
+              >
+                {activeSlide.title}
+              </motion.h1>
+
+              <motion.p
+                variants={textItemVariants}
+                className="mt-5 text-base text-white/70 sm:text-lg"
+              >
+                {activeSlide.description}
+              </motion.p>
+
+              <motion.div
+                variants={textItemVariants}
+                className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:items-center"
+              >
+                <Link
+                  href={activeSlide.href}
+                  className="group relative inline-flex items-center justify-center overflow-hidden rounded-md bg-[#F2C94C] px-8 py-3.5 text-sm font-semibold text-[#1A1A1A] shadow-[0_2px_8px_rgba(242,201,76,0.18)] transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_18px_42px_rgba(242,201,76,0.45),0_0_0_1px_rgba(242,201,76,0.25)]"
+                >
+                  <span className="relative z-10">{activeSlide.button}</span>
+                  <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
+                </Link>
+
+                <p className="text-xs uppercase tracking-[0.2em] text-white/40">
+                  Slide {currentSlide + 1} / {slides.length}
+                </p>
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Next arrow anchored below centered content */}
+          <button
+            type="button"
+            onClick={() =>
+              setCurrentSlide((prev) => (prev + 1) % slides.length)
+            }
+            className="group mt-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-black/55 text-white/75 shadow-[0_8px_24px_rgba(0,0,0,0.55)] backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[#F2C94C] hover:text-[#F2C94C] sm:mt-12"
+            aria-label="Next hero slide"
+          >
+            <svg
+              className="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M8 5L15 12L8 19"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
     </section>
   );
 }
