@@ -113,7 +113,8 @@ export default function HomeHero() {
               muted
               loop
               playsInline
-              preload="auto"
+              preload={index === 0 ? 'auto' : 'metadata'}
+              poster="/logo-antwork.jpg"
               className="h-full w-full object-cover"
             >
               <source src={slide.video} type="video/mp4" />
