@@ -49,34 +49,34 @@ const slides = [
   {
     title: 'Franchise Marketing',
     description:
-      'Grow your franchise network with powerful marketing strategies that connect you with the right buyers.',
+      'Grow your franchise network with strategic, data-backed campaigns that attract high-intent prospects, strengthen brand visibility, and keep your expansion pipeline consistently active.',
     button: 'Start Growing Today',
     href: '/services/franchise-expansion',
-    video: '/videos/15470063_1920_1080_50fps.mp4',
+    video: '/videos/hero-section-video-2.mp4',
   },
   {
     title: 'Investor Relations',
     description:
-      'Connect your brand with serious investors and expand your franchise footprint faster.',
+      'Connect your brand with serious, pre-qualified investors through structured outreach, curated investor networks, and transparent deal communication that accelerates franchise sign-ups.',
     button: 'Find Investors',
     href: '/investor-zone',
-    video: '/videos/15175124_3840_2160_30fps.mp4',
+    video: '/videos/hero-section-video-1.mp4',
   },
   {
     title: 'Business Expansion',
     description:
-      'Scale your brand across new markets with a strong franchise growth strategy.',
+      'Scale your brand into new cities and regions with a clear market-entry roadmap, robust franchise models, and the right support systems to sustain long-term growth.',
     button: 'Explore Opportunities',
     href: '/services',
-    video: '/videos/15370702_3840_2160_30fps.mp4',
+    video: '/videos/hero-section-video-3.mp4',
   },
   {
     title: 'Franchise Consulting',
     description:
-      'We help brands scale through powerful franchise consulting and growth strategies.',
+      'Turn your business into a scalable franchise with end-to-end consulting—from model design and documentation to partner selection and roll-out support across multiple locations.',
     button: 'Start Your Franchise Journey',
     href: '/services/franchise-consulting',
-    video: '/videos/hero-video.mp4',
+    video: '/videos/hero-section-video-4.mp4',
   },
 ];
 

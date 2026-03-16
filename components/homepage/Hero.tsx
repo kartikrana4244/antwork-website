@@ -7,7 +7,7 @@ export default function Hero() {
     <section className="relative h-screen w-full overflow-hidden">
       <video
         className="absolute inset-0 h-full w-full object-cover"
-        src="/hero-video.mp4"
+        src="/videos/hero-section-video-4.mp4"
         autoPlay
         muted
         loop
