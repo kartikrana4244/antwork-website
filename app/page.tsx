@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import HomeHero from '@/components/HomeHero';
 import StatsBar from '@/components/StatsBar';
 import AboutSnapshot from '@/components/AboutSnapshot';
+import ExperienceStrip from '@/components/ExperienceStrip';
 import ServicesGrid from '@/components/ServicesGrid';
 import HowWeWork from '@/components/HowWeWork';
 import IndustriesStrip from '@/components/IndustriesStrip';
@@ -20,6 +21,7 @@ export default function Home() {
       <HomeHero />
       <StatsBar />
       <AboutSnapshot />
+      <ExperienceStrip />
       <ServicesGrid />
       <HowWeWork />
       <IndustriesStrip />
