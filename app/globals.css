@@ -107,13 +107,15 @@ html {
   50% { transform: translateY(6px); }
 }
 
-@keyframes marquee-slow {
+@keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
 .marquee-track {
-  animation: marquee-slow 32s linear infinite;
+  display: inline-flex;
+  will-change: transform;
+  animation: marquee 32s linear infinite;
 }
 
 @media (max-width: 640px) {
@@ -122,13 +124,15 @@ html {
   }
 }
 
-@keyframes marquee-slow-reverse {
+@keyframes marquee-reverse {
   0% { transform: translateX(-50%); }
   100% { transform: translateX(0); }
 }
 
 .marquee-track-secondary {
-  animation: marquee-slow-reverse 42s linear infinite;
+  display: inline-flex;
+  will-change: transform;
+  animation: marquee-reverse 42s linear infinite;
 }
 
 @media (max-width: 640px) {
