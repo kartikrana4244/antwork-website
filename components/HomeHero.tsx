@@ -5,19 +5,19 @@ import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const textContainerVariants = {
-  initial: { opacity: 0, y: 32 },
+  initial: { opacity: 0, y: 28 },
   animate: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.9,
+      duration: 0.7,
       ease: [0.22, 1, 0.36, 1] as const,
-      staggerChildren: 0.12,
+      staggerChildren: 0.14,
     },
   },
   exit: {
     opacity: 0,
-    y: -20,
+    y: 10,
     transition: {
       duration: 0.5,
       ease: [0.22, 1, 0.36, 1] as const,
@@ -26,20 +26,20 @@ const textContainerVariants = {
 };
 
 const textItemVariants = {
-  initial: { opacity: 0, y: 24 },
+  initial: { opacity: 0, y: 18 },
   animate: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.65,
+      duration: 0.6,
       ease: [0.22, 1, 0.36, 1] as const,
     },
   },
   exit: {
     opacity: 0,
-    y: -12,
+    y: 8,
     transition: {
-      duration: 0.4,
+      duration: 0.45,
       ease: [0.22, 1, 0.36, 1] as const,
     },
   },
@@ -114,7 +114,7 @@ export default function HomeHero() {
               loop
               playsInline
               preload={index === 0 ? 'auto' : 'metadata'}
-              poster="/logo-antwork.jpg"
+              poster="/videos/hero-poster.jpg"
               className="h-full w-full object-cover"
             >
               <source src={slide.video} type="video/mp4" />
@@ -128,8 +128,8 @@ export default function HomeHero() {
       </div>
 
       {/* Foreground content */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center justify-center px-4 py-16 sm:px-6 lg:px-8">
-        <div className="w-full max-w-2xl text-center">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center justify-center px-4 py-14 sm:px-6 lg:px-8">
+        <div className="w-full max-w-3xl text-center sm:max-w-4xl">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -137,32 +137,32 @@ export default function HomeHero() {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="text-center"
+              className="mx-auto max-w-3xl text-center sm:max-w-4xl md:min-h-[260px]"
             >
               <motion.p
                 variants={textItemVariants}
-                className="text-[11px] font-semibold tracking-[0.35em] text-[#F2C94C] sm:text-xs"
+                className="mb-3 text-[11px] font-semibold tracking-[0.35em] text-[#F2C94C] sm:text-xs"
               >
-                INDIA&apos;S #1 FRANCHISE CONSULTANTS
+                FRANCHISE CONSULTANTS
               </motion.p>
 
               <motion.h1
                 variants={textItemVariants}
-                className="mt-5 font-heading text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl md:text-[3.25rem] lg:text-[3.6rem]"
+                className="mb-4 font-heading text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl md:text-[3rem] lg:text-[3.4rem]"
               >
                 {activeSlide.title}
               </motion.h1>
 
               <motion.p
                 variants={textItemVariants}
-                className="mt-5 text-base text-white/70 sm:text-lg"
+                className="mb-6 text-sm text-white/70 sm:text-base sm:px-4 md:text-lg md:px-0"
               >
                 {activeSlide.description}
               </motion.p>
 
               <motion.div
                 variants={textItemVariants}
-                className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:items-center"
+                className="mt-2 flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:justify-center"
               >
                 <Link
                   href={activeSlide.href}

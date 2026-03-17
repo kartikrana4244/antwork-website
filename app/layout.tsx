@@ -179,6 +179,12 @@ export default function RootLayout({
             }),
           }}
         />
+        <link
+          rel="preload"
+          as="video"
+          href="/videos/hero-section-video-2.mp4"
+          type="video/mp4"
+        />
       </head>
       <body className="min-w-0 bg-white font-sans text-[#1A1A1A] antialiased overflow-x-hidden">
         <Header />
