@@ -58,7 +58,7 @@ export default function AboutSnapshot() {
             </motion.div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/50 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 rounded-lg border border-white/10 bg-black/50 px-5 py-4 backdrop-blur-md">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#F2C94C]">Since 2018</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#F2C94C]">Since 2015</p>
               <p className="mt-1 text-sm text-white/70">Driving growth for brands across India</p>
             </div>
           </motion.div>
