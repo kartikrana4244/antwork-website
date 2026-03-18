@@ -116,7 +116,7 @@ export default function HomeHero() {
               preload={index === 0 ? 'auto' : 'metadata'}
               poster="/videos/hero-poster.jpg"
               className="h-full w-full object-cover"
-              style={{ filter: 'brightness(1.06) contrast(1.04)' }}
+              style={{ filter: 'brightness(1.13) contrast(1.06)' }}
             >
               <source src={slide.video} type="video/mp4" />
             </video>
