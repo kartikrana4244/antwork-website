@@ -116,6 +116,7 @@ export default function HomeHero() {
               preload={index === 0 ? 'auto' : 'metadata'}
               poster="/videos/hero-poster.jpg"
               className="h-full w-full object-cover"
+              style={{ filter: 'brightness(1.06) contrast(1.04)' }}
             >
               <source src={slide.video} type="video/mp4" />
             </video>
@@ -123,8 +124,8 @@ export default function HomeHero() {
         ))}
 
         {/* Dark + gold overlay to keep text readable */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(242,201,76,0.18),transparent_55%),radial-gradient(circle_at_bottom,_rgba(0,0,0,0.3),transparent_65%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-[#050505]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(242,201,76,0.2),transparent_55%),radial-gradient(circle_at_bottom,_rgba(0,0,0,0.22),transparent_65%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-[#050505]" />
       </div>
 
       {/* Foreground content */}
@@ -149,6 +150,7 @@ export default function HomeHero() {
               <motion.h1
                 variants={textItemVariants}
                 className="mb-4 font-heading text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl md:text-[3rem] lg:text-[3.4rem]"
+                style={{ textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}
               >
                 {activeSlide.title}
               </motion.h1>
