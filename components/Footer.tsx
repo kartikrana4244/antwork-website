@@ -43,7 +43,7 @@ export default function Footer() {
         viewport={{ once: true, margin: '-80px' }}
       >
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          <motion.div variants={fadeUp} className="min-w-0 space-y-5">
+          <motion.div variants={fadeUp} className="min-w-0 flex h-full flex-col space-y-5">
             <Link href="/" className="inline-block font-heading text-xl font-bold sm:text-2xl" aria-label="AntWork Home">
               <span className="text-[#F2C94C]">Ant</span>
               <span className="text-white">Work</span>
@@ -53,9 +53,13 @@ export default function Footer() {
               AntWork Consultants LLP is a growth-based consulting firm helping brands expand through
               franchise routes, business resale, and exhibitions. Ethical Excellence in every engagement.
             </p>
-            <div className="pt-1">
+            <div className="mt-10 pt-4 sm:mt-12 sm:pt-5 lg:mt-auto">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#F2C94C]">Newsletter</p>
-              <form className="mt-3 flex min-h-[44px] flex-col gap-2 sm:flex-row" onSubmit={(e) => e.preventDefault()} aria-label="Newsletter signup">
+              <form
+                className="mt-4 flex min-h-[44px] flex-col gap-2 sm:mt-5 sm:flex-row"
+                onSubmit={(e) => e.preventDefault()}
+                aria-label="Newsletter signup"
+              >
                 <input
                   type="email"
                   placeholder="Your email"
