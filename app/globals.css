@@ -141,6 +141,30 @@ html {
   }
 }
 
+@keyframes testimonials-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.testimonials-track {
+  animation: testimonials-marquee 25s linear infinite;
+  will-change: transform;
+}
+
+.testimonials-marquee:hover .testimonials-track {
+  animation-play-state: paused;
+}
+
+@media (max-width: 640px) {
+  .testimonials-track {
+    animation-duration: 30s;
+  }
+}
+
 /* Continuous sliders: linear motion, GPU-friendly */
 .brands-slider .swiper-wrapper,
 .industries-slider .swiper-wrapper {
