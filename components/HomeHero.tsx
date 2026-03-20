@@ -114,7 +114,7 @@ export default function HomeHero() {
               loop
               playsInline
               preload={index === 0 ? 'auto' : 'metadata'}
-              poster="/videos/hero-poster.jpg"
+              poster="/picture/services.jpg"
               className="h-full w-full object-cover"
               style={{ filter: 'brightness(1.13) contrast(1.06)' }}
             >
